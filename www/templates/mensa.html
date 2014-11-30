@@ -1,0 +1,24 @@
+<ion-view title="Mensa">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<ion-content>
+	
+		<div class="list" ng-controller="GroupCtrl">
+			<div ng-repeat = "menu in fullPlan">
+				<div class="item item-divider" style="background-color: grey" ng-click="toggleGroup(menu)" ng-class="{active: isGroupShown(menu)}">
+					{{menu.day}}
+				</div>
+	
+				<div class="item-accordion" ng-show="isGroupShown(menu)">
+					<div class="item-divider">&nbsp;&nbsp;Menü 1</div>
+					<p style="margin: 20px;">{{menu.menu1}}</p>
+					<div class="item-divider">&nbsp;&nbsp;Menü 2</div>
+					<p style="margin: 20px;">{{menu.menu2}}</p>
+				</div>
+			</div>
+		</div>
+		
+	</ion-content>
+</ion-view>

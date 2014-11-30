@@ -1,0 +1,43 @@
+<ion-side-menus>
+
+	<ion-side-menu-content>
+		<ion-nav-bar class="bar-dark nav-title-slide-ios7">
+			<ion-nav-back-button class="button-clear">
+				<i class="icon ion-ios7-arrow-back"></i> Back
+			</ion-nav-back-button>
+		</ion-nav-bar>
+		<ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+	</ion-side-menu-content>
+
+	<ion-side-menu side="left">
+		<header class="bar bar-header bar-dark">
+			<h1 class="title">Menü</h1>
+		</header>
+		<ion-content class="has-header">
+			<ion-list>
+				<ion-item nav-clear menu-close href="#/app/news" ng-controller="NewsCtrl" ng-click="swipeDown()">
+					News
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/mensa">
+					Mensa
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/fangebot">
+					Freizeitangebot
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/kalender">
+					Kalender
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/campus">
+					Campus
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/sbrett">
+					Schwarzes Brett
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/wohnungsmarkt">
+					Wohnungsmarkt
+				</ion-item>
+
+			</ion-list>
+		</ion-content>
+	</ion-side-menu>
+</ion-side-menus>

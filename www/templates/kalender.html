@@ -1,0 +1,13 @@
+<ion-view title="Kalender">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<ion-content class="has-header">
+
+		<div class="list">
+			<a class="item" href="#/app/campus/{{days.name}}" ng-repeat = "day in week"> <h3>{{day.name}} {{day.date}}.{{day.month}}.{{day.year}}</h3> </a>
+		</div>
+
+	</ion-content>
+</ion-view>
