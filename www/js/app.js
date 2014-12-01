@@ -108,7 +108,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'NewsItemCtrl'
         }
       }
+    })
+    
+    .state('app.sbrett', {
+    	url: "/sbrett",
+    	views: {
+    		'menuContent': {
+    			templateUrl: "templates/sbrett.html"
+    			}
+    		}
+    })
+    
+    .state('app.wohnungsmarkt', {
+      url: "/wohnungsmarkt",
+      views: {
+      	'menuContent': {
+      		templateUrl: "templates/wohnungsmarkt.html"
+      	}
+      }
     });
+    
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/news');
 });

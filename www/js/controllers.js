@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
 	var dat = date.getDate();
 	var day = date.getDay();
 
-	var woche = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
+	var woche = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
 	$scope.fullPlan = Mensa.all();
 
