@@ -143,3 +143,20 @@ angular.module('starter.services', [])
 		}
 	}
 })
+
+.factory('Sbrett', function($http){
+	
+	var offerBlackboard = [];
+	
+  	$http.get('Testdaten/OfferBlackboard.json').success(function(data,status){
+  		for (var i = 0; i < data.length; i++){
+  			offerBlackboard.push(data[i]);
+  		}
+  	});
+  	
+  	return{
+  		all: function(){
+			return offerBlackboard;
+		}
+  	};
+})

@@ -12,5 +12,15 @@
       			Suchen
     		</button>
 		</div>
+		
+		
+		<div class="list" >
+					<div ng-repeat = "offer in OfferBlackboard">
+						<a class="item item-divider" style="background-color: grey" href="#/app/fangebot/{{activity.id}}">
+							{{offer.title}}
+						<a>
+					</div>
+				</div>
+		
 	</ion-content>
 </ion-view>

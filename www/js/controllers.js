@@ -85,4 +85,8 @@ angular.module('starter.controllers', [])
 //Controller für die Anzeige der Gebäude
 .controller('CampusItemCtrl', function($scope, $stateParams, Campus){
 	$scope.standorte = Campus.get($stateParams.campusId);
-});
+})
+
+.controller('SbrettCtrl', function($scope, Sbrett){
+	$scope.OfferBlackboard = Sbrett.all();
+})

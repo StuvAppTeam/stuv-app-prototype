@@ -114,7 +114,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     	url: "/sbrett",
     	views: {
     		'menuContent': {
-    			templateUrl: "templates/sbrett.html"
+    			templateUrl: "templates/sbrett.html",
+    			controller: 'SbrettCtrl'
     			}
     		}
     })
