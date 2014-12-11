@@ -89,4 +89,8 @@ angular.module('starter.controllers', [])
 
 .controller('SbrettCtrl', function($scope, Sbrett){
 	$scope.OfferBlackboard = Sbrett.all();
+	$scope.Categories = Sbrett.all_categories();
+})
+.controller('SbrettCategoryCtrl', function($scope, $stateParams, Sbrett) {
+	$scope.Categories = Sbrett.get($stateParams.categoriesId);
 })

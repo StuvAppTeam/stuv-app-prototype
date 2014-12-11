@@ -147,6 +147,8 @@ angular.module('starter.services', [])
 .factory('Sbrett', function($http){
 	
 	var offerBlackboard = [];
+	var categories = [];
+	
 	
   	$http.get('Testdaten/OfferBlackboard.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
@@ -154,9 +156,28 @@ angular.module('starter.services', [])
   		}
   	});
   	
+  	$http.get('Testdaten/Category.json').success(function(data,status){
+  		for (var i = 0; i < data.length; i++){
+  			categories.push(data[i]);
+  		}
+  	});
+  	
+  // Request JSON einbinden	
   	return{
   		all: function(){
 			return offerBlackboard;
-		}
-  	};
+		},
+		all_categories: function(){
+			return categories;
+		},
+		get: function(categoriesId){
+  		return categories[Id];
+  },
+  all_in_category: function(){
+  	var requests = [ ];
+// Schleife für Elemente in Request
+	return requests;
+  }
+		
+  	}
 })

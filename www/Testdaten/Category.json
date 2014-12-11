@@ -1,44 +1,53 @@
 [{
   "id": 1,
-  "name": "Mitfahrgelegenheiten"
+  "name": "Mitfahrgelegenheiten",
+  "imgsrc": "mitfahrgelegenheit.jpg"
 }
 ,
 {
   "id": 2,
-  "name": "Wohnungsmarkt"
+  "name": "Wohnungsmarkt",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 3,
-  "name": "Elektronik"
+  "name": "Elektronik",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 4,
-  "name": "M'88bel"
+  "name": "M'88bel",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 5,
-  "name": "B'b8cher"
+  "name": "B'b8cher",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 6,
-  "name": "Kontaktanzeigen"
+  "name": "Kontaktanzeigen",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 7,
-  "name": "Nachhilfe"
+  "name": "Nachhilfe",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 8,
-  "name": "Sonstiges"
+  "name": "Sonstiges",
+   "imgsrc": "category1.jpg"
 }
 ,
 {
   "id": 9,
-  "name": "Fahrzeuge"
+  "name": "Fahrzeuge",
+   "imgsrc": "category1.jpg"
 }]

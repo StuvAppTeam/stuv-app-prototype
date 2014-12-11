@@ -120,6 +120,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     		}
     })
     
+     .state('app.sbrettcategory', {
+      url: "/category/:categoriesId",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/sbrettcategories.html",
+          controller: 'SbrettCategoryCtrl'
+        }
+      }
+    })
+    
     .state('app.wohnungsmarkt', {
       url: "/wohnungsmarkt",
       views: {
