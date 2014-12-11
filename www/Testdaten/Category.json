@@ -1,44 +1,44 @@
-{
+[{
   "id": 1,
   "name": "Mitfahrgelegenheiten"
 }
-
+,
 {
   "id": 2,
   "name": "Wohnungsmarkt"
 }
-
+,
 {
   "id": 3,
   "name": "Elektronik"
 }
-
+,
 {
   "id": 4,
   "name": "M'88bel"
 }
-
+,
 {
   "id": 5,
   "name": "B'b8cher"
 }
-
+,
 {
   "id": 6,
   "name": "Kontaktanzeigen"
 }
-
+,
 {
   "id": 7,
   "name": "Nachhilfe"
 }
-
+,
 {
   "id": 8,
   "name": "Sonstiges"
 }
-
+,
 {
   "id": 9,
   "name": "Fahrzeuge"
-}}
+}]

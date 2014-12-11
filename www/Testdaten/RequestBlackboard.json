@@ -1,87 +1,87 @@
-{
+[{
   "id": 1,
   "title": "Suche Mitfahrgelegenheit",
-  "createTime": datetime,
-  "description": "F'b8r den 04.12.2014 von RV nach MZ",
+  "createTime": "datetime",
+  "description": "Für den 04.12.2014 von RV nach MZ",
   "totalprice": 15.00,
   "userid" : 1312,
   "categoryid" : 1,
   "condition" : true
 }
-
+,
 {
   "id": 2,
   "title": "Suche Haushaltshilfe",
-  "createTime": datetime,
-  "description": "F'b8r Putzen, Saugen, B'b8geln",
+  "createTime": "datetime",
+  "description": "F'b8r Putzen, Saugen, Bügeln",
   "totalprice": 10.00,
   "userid" : 1505,
   "categoryid" : 6,
   "condition" : true
 }
-
+,
 {
   "id": 3,
   "title": "Lockenstab",
-  "createTime": datetime,
-  "description": "So schnell wie m'88glich!",
+  "createTime": "datetime",
+  "description": "So schnell wie möglich!",
   "totalprice": 8.00,
   "userid" : 6666, 
   "categoryid" : 3,
   "condition" : true
 }
-
+,
 {
   "id": 4,
   "title": "PS4",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Will wahrscheinlich eh niemand haben, deswegen recycle ich das Zeug!",
   "totalprice": 1.00,
   "userid" : 8888, 
   "categoryid" : 3,
   "condition" : true
 }
-
+,
 {
   "id": 5,
   "title": "Big Data mit HBase",
-  "createTime": datetime,
-  "description": "Brauche dringend das Buch! Hat jemand zuf'89llig eins??",
+  "createTime": "datetime",
+  "description": "Brauche dringend das Buch! Hat jemand zufällig eins??",
   "totalprice": 29.00,
   "userid" : 1312,
   "categoryid" : 5,
   "condition" : true
 }
-
+,
 {
   "id": 6,
   "title": "Kaffeetassen",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Bei FIFA gehen mir immer zu viele zu Bruch. Deswegen brauche ich Nachschub!!",
   "totalprice": 2.00,
   "userid" : 9999,
   "categoryid" : 8,
   "condition" : true
 }
-
+,
 {
   "id": 7,
   "title": "iPhone 6",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Zahle sischer beschte Preis!",
   "totalprice": 299.00,
   "userid" : 5432,
   "categoryid" : 3,
   "condition" : true
 }
-
+,
 {
   "id": 8,
   "title": "Lebensabschnittsgef'89hrten",
-  "createTime": datetime,
-  "description": "Suche jemanden f'b8r gemeinsame N'89chte! Kino, Essen gehen und Co.! Nur m'89nnlich bitte!",
+  "createTime": "datetime",
+  "description": "Suche jemanden für gemeinsame Nächte! Kino, Essen gehen und Co.! Nur männlich bitte!",
   "totalprice": 100.00,
   "userid" : 9999,
   "categoryid" : 6,
   "condition" : true
-}}
+}]

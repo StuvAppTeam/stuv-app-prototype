@@ -1,7 +1,7 @@
-{
+[{
   "id": 1,
   "title": "Suche WGZimmer",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Mindestens 13m2",
   "totalprice": 150.00,
   "userid" : 9999,
@@ -11,11 +11,11 @@
   "phase": "A",
   "city": "Ravensburg"
 }
-
+,
 {
   "id": 2,
   "title": "Suche 1-Zimmer-Wohnung",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Zentrale Lage erw'b8nscht!",
   "totalprice": 300.00,
   "userid" : 8888,
@@ -25,11 +25,11 @@
   "phase": "B",
   "city": "Bad Saulgau"
 }
-
+,
 {
   "id": 3,
   "title": "Suche WG Zimmer in M'b8nchen",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Als Tauschpartner f'b8r B-Phase",
   "totalprice": 350.00,
   "userid" : 6666,
@@ -39,11 +39,11 @@
   "phase": "A",
   "city": "M'b8nchen"
 }
-
+,
 {
   "id": 4,
-  "title": "Suche WG Zimmer in RV"
-  "createTime": datetime,
+  "title": "Suche WG Zimmer in RV",
+  "createTime": "datetime",
   "description": "Muss nicht m'88belliert sein aber sehr grouc0u64258 !",
   "totalprice": 420.00,
   "userid" : 5432,
@@ -53,12 +53,11 @@
   "phase": "A",
   "city": "Ravensburg"
 }
-
-
+,
 {
   "id": 5,
   "title": "Suche WG Zimmer",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Maximal 200'c4 und m'88belliert!",
   "totalprice": 200.00,
   "userid" : 1111,
@@ -68,12 +67,11 @@
   "phase": "B",
   "city": "Weingarten"
 }
-
-
+,
 {
   "id": 6,
   "title": "Suche 1-Zi-Wo",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Bitte dringend melden!",
   "totalprice": 25.00,
   "userid" : 1312,
@@ -83,11 +81,11 @@
   "phase": "A",
   "city": "Ravensburg"
 }
-
+,
 {
   "id": 7,
   "title": "Suche Einfamilienhaus",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Gerne auch Stadtrandlage",
   "totalprice": 1500.00,
   "userid" : 1312,
@@ -97,11 +95,11 @@
   "phase": "A",
   "city": "Ravensburg"
 }
-
+,
 {
   "id": 8,
   "title": "Suche nette WG",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Gerne auch bisschen teurer",
   "totalprice": 500.00,
   "userid" : 1404,
@@ -111,11 +109,11 @@
   "phase": "B",
   "city": "Ravensburg"
 }
-
+,
 {
   "id": 9,
   "title": "Suche kleines Appartment",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Klein und g'b8nstig",
   "totalprice": 300.00,
   "userid" : 1312,
@@ -125,11 +123,11 @@
   "phase": "B",
   "city": "Weingarten"
 }
-
+,
 {
   "id": 10,
   "title": "Suche 1-Zimmer-Wohnung",
-  "createTime": datetime,
+  "createTime": "datetime",
   "description": "Am Besten in Bad Waldsee",
   "totalprice": 450.00,
   "userid" : 1505,
@@ -138,4 +136,4 @@
   "size": 18,
   "phase": "B",
   "city": "Bad Waldsee"
-}}
+}]
