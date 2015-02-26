@@ -121,7 +121,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
     
      .state('app.sbrettcategory', {
-      url: "/category/:categoriesId",
+      url: "/sbrett/:categoriesId",
       views: {
         'menuContent' :{
           templateUrl: "templates/sbrettcategories.html",
