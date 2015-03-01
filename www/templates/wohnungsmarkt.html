@@ -12,5 +12,12 @@
 				Suchen
 			</button>
 		</div>
+		
+        <div class="list" >
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment" href="#/app/wohnungsmarkt/{{Wohnung.id}}">
+                    <h2>{{Wohnung.title}}</h2>
+                </a>
+        </div>
+		
 	</ion-content>
 </ion-view>

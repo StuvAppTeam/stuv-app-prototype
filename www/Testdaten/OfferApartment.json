@@ -1,7 +1,7 @@
 [{
 "id": "99",
-"title": "Biete Zimmer in der R'89uberh'88hle",
-"description": "Raucher erw'b8nscht",
+"title": "Biete Zimmer in der Räuberhöhle",
+"description": "Raucher erwünscht",
 "createtime": "datetime",
 "totalprice": 480.01,
 "iconid": 1111,
@@ -18,20 +18,20 @@
 "moveIn" : "datetime",
 "furnished" : true,
 "internet" : true,
-"other" : "R'89uberh'88hle",
-"parking" : "Zwei Parkpl'89tze",
+"other" : "Räuberhöhle",
+"parking" : "Zwei Parkplätze",
 "rooms" : 4,
 "smoking" : true
 }
 ,
 {
 "id": "98",
-"title": "WG Zimmer in der Marktstrauc0u64258 e",
-"description": "Suche Untermieter f'b8r die A-Phase",
+"title": "WG Zimmer in der Marktstrße",
+"description": "Suche Untermieter für die A-Phase",
 "createtime": "datetime",
 "totalprice": 298.87,
 "iconid": 3333,
-"street": "Marktstrauc0u64258 e",
+"street": "Marktstrße",
 "city": "Ravensburg",
 "zipcode": 88214,
 "userid": 9999,
@@ -45,7 +45,7 @@
 "furnished" : true,
 "internet" : true,
 "other" : " ",
-"parking" : "Keine Parkm'88glichkeiten",
+"parking" : "Keine Parkmöglichkeiten",
 "rooms" : 2,
 "smoking" : true
 }
@@ -53,11 +53,11 @@
 {
 "id": "97",
 "title": "Vermiete 1-Zimmer-Wohnung",
-"description": "In der Eichelstrauc0u64258 e",
+"description": "In der Eichelstraße",
 "createtime": "datetime",
 "totalprice": 193.04,
 "iconid": 3333,
-"street": "Eichelstrauc0u64258 e",
+"street": "Eichelstraße",
 "city": "Ravensburg",
 "zipcode": 88214,
 "userid": 1404,
@@ -70,7 +70,7 @@
 "moveIn" : "datetime",
 "furnished" : true,
 "internet" : true,
-"other" : "Swarleys B'b8ro",
+"other" : "Swarleys Büro",
 "parking" : "Parkhaus",
 "rooms" : 1,
 "smoking" : false
@@ -79,11 +79,11 @@
 {
 "id": "96",
 "title": "Einfamilienhaus in der Weststadt",
-"description": "Perfekte Lage in der N'89he von der Autobahn",
+"description": "Perfekte Lage in der Nähe von der Autobahn",
 "createtime": "datetime",
 "totalprice": 2679.99,
 "iconid": 2222,
-"street": "Weststadthallenstrauc0u64258 e",
+"street": "Weststadthallenstraße",
 "city": "Ravensburg",
 "zipcode": 88214,
 "userid": 8888,
@@ -97,7 +97,7 @@
 "furnished" : true,
 "internet" : true,
 "other" : "Mehlsack",
-"parking" : "Keine Parkm'88glichkeiten",
+"parking" : "Keine Parkmöglichkeiten",
 "rooms" : 34,
 "smoking" : false
 }
@@ -109,7 +109,7 @@
 "createtime": "datetime",
 "totalprice": 379.99,
 "iconid": 3333,
-"street": "Rudolfstrauc0u64258 e",
+"street": "Rudolfstraße",
 "city": "Ravensburg",
 "zipcode": 88214,
 "userid": 1505,
@@ -123,7 +123,7 @@
 "furnished" : true,
 "internet" : true,
 "other" : "Klopfer WG",
-"parking" : "'f7ffentliche Parkm'88glichkeiten",
+"parking" : "Öffentliche Parkmöglichkeiten",
 "rooms" : 6,
 "smoking" : true
 }
@@ -131,12 +131,12 @@
 {
 "id": "94",
 "title": "WG Zimmer als Hauptmieter",
-"description": "Bin n'89chstes Jahr fertig und trete deswegen die Hauptmiete ab",
+"description": "Bin nächstes Jahr fertig und trete deswegen die Hauptmiete ab",
 "createtime": "datetime",
 "totalprice": 509.99,
 "iconid": 3333,
-"street": "Rudolfstrauc0u64258 e",
-"city": "Adlerstrauc0u64258 e",
+"street": "Rudolfstraße",
+"city": "Adlerstraße",
 "zipcode": 88214,
 "userid": 6666,
 "size" : 20,
@@ -157,7 +157,7 @@
 {
 "id": "93",
 "title": "Appartment in der Innenstadt zu vermieten",
-"description": "Direkt 'b8berm Wilderer",
+"description": "Direkt überm Wilderer",
 "createtime": "datetime",
 "totalprice": 429.50,
 "iconid": 1111,

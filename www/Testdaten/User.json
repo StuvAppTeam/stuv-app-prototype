@@ -1,8 +1,8 @@
 [{
   "id": 1505,
-  "gender": "m'89nnlich",
+  "gender": "männlich",
   "firstname": "Kevin",
-  "lastname": "Matth'89us",
+  "lastname": "Matthäus",
   "email": "kevinmatthaeus@gmx.de",
   "password": "pipapo1312",
   "username": "mattkevi",
@@ -13,7 +13,7 @@
 ,
 {
   "id": 1404,
-  "gender": "m'89nnlich",
+  "gender": "männlich",
   "firstname": "Tim",
   "lastname": "Sen",
   "email": "senchen@gmx.de",
@@ -39,7 +39,7 @@
 ,
 {
   "id": 1111,
-  "gender": "m'89nnlich",
+  "gender": "männlich",
   "firstname": "Der",
   "lastname": "Boss",
   "email": "boss@bossrecords.com",
@@ -52,7 +52,7 @@
 ,
 {
   "id": 5432,
-  "gender": "m'89nnlich",
+  "gender": "männlich",
   "firstname": "Barack",
   "lastname": "Obama",
   "email": "blackpower@usa.com",

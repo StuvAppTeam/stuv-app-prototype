@@ -144,7 +144,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: "/wohnungsmarkt",
       views: {
       	'menuContent': {
-      		templateUrl: "templates/wohnungsmarkt.html"
+      		templateUrl: "templates/wohnungsmarkt.html",
+      		controller: 'WohnungCtrl'
       	}
       }
     });

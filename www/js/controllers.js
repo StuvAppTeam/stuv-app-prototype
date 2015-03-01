@@ -100,3 +100,8 @@ angular.module('starter.controllers', [])
 .controller('SbrettCategoryItemCtrl', function($scope, $stateParams, Sbrett) {
 	$scope.item = Sbrett.get_entry($stateParams.itemId);
 })
+
+//Controller für die Auswahl einer Wohnung
+.controller('WohnungCtrl', function($scope, Wohnung){
+	$scope.OfferApartment = Wohnung.all();
+})

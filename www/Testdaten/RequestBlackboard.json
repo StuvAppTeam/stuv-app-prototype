@@ -13,7 +13,7 @@
   "id": 2,
   "title": "Suche Haushaltshilfe",
   "createTime": "datetime",
-  "description": "F'b8r Putzen, Saugen, Bügeln",
+  "description": "Für Putzen, Saugen, Bügeln",
   "totalprice": 10.00,
   "userid" : 1505,
   "categoryid" : 6,
@@ -77,7 +77,7 @@
 ,
 {
   "id": 8,
-  "title": "Lebensabschnittsgef'89hrten",
+  "title": "Lebensabschnittsgefährten",
   "createTime": "datetime",
   "description": "Suche jemanden für gemeinsame Nächte! Kino, Essen gehen und Co.! Nur männlich bitte!",
   "totalprice": 100.00,

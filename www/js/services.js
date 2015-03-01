@@ -195,3 +195,19 @@ angular.module('starter.services', [])
 		
 	}
 })
+
+.factory('Wohnung', function($http){
+	var OfferApartment = [];
+	
+	  	$http.get('Testdaten/OfferApartment.json').success(function(data,status){
+  		for (var i = 0; i < data.length; i++){
+  			OfferApartment.push(data[i]);
+  		}
+  	});
+	
+	return {
+		all: function(){
+			return OfferApartment;
+		}
+	}
+})
