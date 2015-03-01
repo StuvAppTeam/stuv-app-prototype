@@ -1,4 +1,4 @@
-<ion-view title="Schwarzes Brett">
+<ion-view title="{{categories.name}}">
 	<ion-nav-buttons side="left">
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
@@ -14,12 +14,12 @@
 		</div>
 		
 
-				<div class="list" >
-						<a class="item item-thumbnail-left" ng-repeat = "category in Categories" href="#/app/sbrett/{{category.id}}">
-							<img src="img/Category/{{category.imgsrc}}">
-							<h2>{{category.name}}</h2>
-						<a>
-				</div>
+		<div class="list" >
+				<a class="item item-thumbnail-left" ng-repeat = "entry in Request" href="#/app/{{entry.categoryid}}/{{entry.id}}">
+					<h2>{{entry.title}}</h2>
+				</a>
+		</div>
+		
 		
 		
 	</ion-content>

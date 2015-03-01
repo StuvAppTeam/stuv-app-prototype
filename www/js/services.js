@@ -164,20 +164,34 @@ angular.module('starter.services', [])
   	
   // Request JSON einbinden	
   	return{
-  		all: function(){
+		all: function(){
 			return offerBlackboard;
 		},
 		all_categories: function(){
 			return categories;
 		},
 		get: function(categoriesId){
-  		return categories[Id];
-  },
-  all_in_category: function(){
-  	var requests = [ ];
-// Schleife für Elemente in Request
-	return requests;
-  }
+		return categories[categoriesId];
+	  	},
+	  	all_in_category: function(categoriesId){
+	  		
+	  	var requests = [ ];
+	  	// Schleife für Elemente in Request
+	  	for (var  i in offerBlackboard){
+	  		if(offerBlackboard[i].categoryid-1 == categoriesId)
+	  			requests.push(offerBlackboard[i]);
+	  	}
+	
+		return requests;
+		},
+		get_entry: function(itemId){
+
+  			for (var entry in offerBlackboard){
+  				if(offerBlackboard[entry].id == itemId)
+  					return (offerBlackboard[entry]);
+  			}
+  			
+  		}
 		
-  	}
+	}
 })

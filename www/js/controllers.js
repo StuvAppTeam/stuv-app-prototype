@@ -93,6 +93,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SbrettCategoryCtrl', function($scope, $stateParams, Sbrett) {
-	$scope.Request = Sbrett.all_in_category();
-	$scope.Categories = Sbrett.get($stateParams.categoriesId);
+	$scope.Request = Sbrett.all_in_category($stateParams.categoriesId);
+	$scope.categories = Sbrett.get($stateParams.categoriesId);
+})
+
+.controller('SbrettCategoryItemCtrl', function($scope, $stateParams, Sbrett) {
+	$scope.item = Sbrett.get_entry($stateParams.itemId);
 })
