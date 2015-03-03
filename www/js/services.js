@@ -6,7 +6,7 @@ angular.module('starter.services', [])
   
   	
   
-  	$http.get('http://localhost:3000/news.json').success(function(data,status){
+  	$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			news.push(data[i]);
   		}
@@ -233,6 +233,9 @@ angular.module('starter.services', [])
 	return {
 		all: function(){
 			return OfferApartment;
-		}
+		},
+		get: function(wohnungsId) {
+			return (OfferApartment[wohnungsId]);
+}
 	}
 })

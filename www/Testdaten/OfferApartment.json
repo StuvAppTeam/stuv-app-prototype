@@ -5,7 +5,7 @@
 "createtime": "datetime",
 "totalprice": 480.01,
 "iconid": 1111,
-"street": "Rudolfstrauc0u64258 e",
+"street": "Rudolfstraßee",
 "city": "Ravensburg",
 "zipcode": 88214,
 "userid": 1505,
@@ -21,7 +21,8 @@
 "other" : "Räuberhöhle",
 "parking" : "Zwei Parkplätze",
 "rooms" : 4,
-"smoking" : true
+"smoking" : true,
+"imgsrc": "rudolfstraße.jpg"
 }
 ,
 {

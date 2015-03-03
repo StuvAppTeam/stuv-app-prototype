@@ -112,3 +112,8 @@ angular.module('starter.controllers', [])
 .controller('WohnungCtrl', function($scope, Wohnung){
 	$scope.OfferApartment = Wohnung.all();
 })
+
+//Controller für einzelene Wohnungen
+.controller('WohnungItemCtrl', function($scope, $stateParams, Wohnung) {
+	$scope.Wohnungitem = Sbrett.get($stateParams.wohnungsId);
+})
