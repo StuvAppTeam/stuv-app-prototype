@@ -235,7 +235,7 @@ angular.module('starter.services', [])
 			return OfferApartment;
 		},
 		get: function(wohnungsId) {
-			return (OfferApartment[wohnungsId]);
+			return OfferApartment[wohnungsId];
 }
 	}
 })
