@@ -235,7 +235,10 @@ angular.module('starter.services', [])
 			return OfferApartment;
 		},
 		get: function(wohnungsId) {
-			return OfferApartment[wohnungsId];
+			  for (var entry in OfferApartment){
+  				if(OfferApartment[entry].id == wohnungsId)
+  					return (OfferApartment[entry]);
 }
+	}
 	}
 })
