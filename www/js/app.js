@@ -158,16 +158,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       	}
       }
     })
-    .state('app.wohnungsitem', {
-    	url: "/wohnungsmarkt/:wohnungsId",
+    .state('app.wohnungsitemoffer', {
+    	url: "/wohnungsmarkt/offerApa/:wohnungsId",
     	views: {
     		'menuContent' :{
-    			templateUrl: "templates/wohnungsitem.html",
-    			controller: 'WohnungItemCtrl'
+    			templateUrl: "templates/wohnungsitemoffer.html",
+    			controller: 'WohnungItemCtrlOffer'
+    		}
+    	}
+    })
+        .state('app.wohnungsitemrequest', {
+    	url: "/wohnungsmarkt/requestApa/:wohnungsId",
+    	views: {
+    		'menuContent' :{
+    			templateUrl: "templates/wohnungsitemrequest.html",
+    			controller: 'WohnungItemCtrlRequest'
     		}
     	}
     });
-    
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/news');
 });

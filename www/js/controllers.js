@@ -110,10 +110,16 @@ angular.module('starter.controllers', [])
 
 //Controller für die Auswahl einer Wohnung
 .controller('WohnungCtrl', function($scope, Wohnung){
-	$scope.OfferApartment = Wohnung.all();
+	$scope.OfferApartment = Wohnung.all_offer();
+	$scope.RequestApartment = Wohnung.all_request();
 })
 
 //Controller für einzelene Wohnungen
-.controller('WohnungItemCtrl', function($scope, $stateParams, Wohnung) {
-	$scope.Wohnungitem = Wohnung.get($stateParams.wohnungsId);
+.controller('WohnungItemCtrlOffer', function($scope, $stateParams, Wohnung) {
+	$scope.Wohnungitem = Wohnung.get_entry_offer($stateParams.wohnungsId);
+})
+
+//Controller für einzelnen Wohnung
+.controller('WohnungItemCtrlRequest', function($scope, $stateParams, Wohnung) {
+	$scope.Wohnungitem = Wohnung.get_entry_request($stateParams.wohnungsId);
 })

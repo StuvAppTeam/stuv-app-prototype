@@ -223,22 +223,38 @@ angular.module('starter.services', [])
 
 .factory('Wohnung', function($http){
 	var OfferApartment = [];
+	var RequestApartment = [];
 	
 	  	$http.get('Testdaten/OfferApartment.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			OfferApartment.push(data[i]);
   		}
   	});
+  	
+  		 $http.get('Testdaten/RequestApartment.json').success(function(data,status){
+  		for (var i = 0; i < data.length; i++){
+  			RequestApartment.push(data[i]);
+  		}
+  	});
 	
 	return {
-		all: function(){
+		all_offer: function(){
 			return OfferApartment;
 		},
-		get: function(wohnungsId) {
+		all_request: function(){
+			return RequestApartment;
+		},
+		get_entry_offer: function(wohnungsId) {
 			  for (var entry in OfferApartment){
   				if(OfferApartment[entry].id == wohnungsId)
   					return (OfferApartment[entry]);
-}
+				}
+	},
+			get_entry_request: function(wohnungsId) {
+			  for (var entry in RequestApartment){
+  				if(RequestApartment[entry].id == wohnungsId)
+  					return (RequestApartment[entry]);
+				}
 	}
 	}
 })
