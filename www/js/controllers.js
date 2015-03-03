@@ -93,12 +93,19 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SbrettCategoryCtrl', function($scope, $stateParams, Sbrett) {
-	$scope.Request = Sbrett.all_in_category($stateParams.categoriesId);
+	$scope.Offer = Sbrett.all_offers_in_category($stateParams.categoriesId);
+	$scope.Request = Sbrett.all_requests_in_category($stateParams.categoriesId);
 	$scope.categories = Sbrett.get($stateParams.categoriesId);
 })
 
-.controller('SbrettCategoryItemCtrl', function($scope, $stateParams, Sbrett) {
-	$scope.item = Sbrett.get_entry($stateParams.itemId);
+.controller('SbrettCategoryItemCtrlOffer', function($scope, $stateParams, Sbrett) {
+	$scope.item = Sbrett.get_entry_offer($stateParams.itemId);
+	
+})
+
+.controller('SbrettCategoryItemCtrlRequest', function($scope, $stateParams, Sbrett) {
+	$scope.item = Sbrett.get_entry_request($stateParams.itemId);
+	
 })
 
 //Controller für die Auswahl einer Wohnung

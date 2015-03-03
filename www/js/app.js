@@ -130,16 +130,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
      
-     .state('app.sbrettcategoryitem', {
-      url: "/:categories/:itemId",
+     .state('app.sbrettcategoryitemoffer', {
+      url: "/:categories/offer/:itemId",
       views: {
         'menuContent' :{
-          templateUrl: "templates/sbrettcategoriesitem.html",
-          controller: 'SbrettCategoryItemCtrl'
+          templateUrl: "templates/sbrettcategoriesitemoffer.html",
+          controller: 'SbrettCategoryItemCtrlOffer'
         }
       }
     })
-    
+
+     .state('app.sbrettcategoryitemrequest', {
+      url: "/:categories/request/:itemId",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/sbrettcategoriesitemrequest.html",
+          controller: 'SbrettCategoryItemCtrlRequest'
+        }
+      }
+    })
     .state('app.wohnungsmarkt', {
       url: "/wohnungsmarkt",
       views: {

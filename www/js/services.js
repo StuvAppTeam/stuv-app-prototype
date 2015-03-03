@@ -148,11 +148,18 @@ angular.module('starter.services', [])
 	
 	var offerBlackboard = [];
 	var categories = [];
+	var requestBlackboard = [];
 	
 	
   	$http.get('Testdaten/OfferBlackboard.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			offerBlackboard.push(data[i]);
+  		}
+  	});
+  	
+  	$http.get('Testdaten/RequestBlackboard.json').success(function(data,status){
+  		for (var i = 0; i < data.length; i++){
+  			requestBlackboard.push(data[i]);
   		}
   	});
   	
@@ -173,26 +180,44 @@ angular.module('starter.services', [])
 		get: function(categoriesId){
 		return categories[categoriesId];
 	  	},
-	  	all_in_category: function(categoriesId){
+	  	all_offers_in_category: function(categoriesId){
 	  		
-	  	var requests = [ ];
+	  	var offers = [ ];
 	  	// Schleife für Elemente in Request
 	  	for (var  i in offerBlackboard){
 	  		if(offerBlackboard[i].categoryid-1 == categoriesId)
-	  			requests.push(offerBlackboard[i]);
+	  			offers.push(offerBlackboard[i]);
+	  	}
+	
+		return offers;
+		},
+		all_requests_in_category: function(categoriesId){
+	  		
+	  	var requests = [ ];
+	  	// Schleife für Elemente in Request
+	  	for (var  i in requestBlackboard){
+	  		if(requestBlackboard[i].categoryid-1 == categoriesId)
+	  			requests.push(requestBlackboard[i]);
 	  	}
 	
 		return requests;
 		},
-		get_entry: function(itemId){
+		get_entry_offer: function(itemId){
 
   			for (var entry in offerBlackboard){
   				if(offerBlackboard[entry].id == itemId)
   					return (offerBlackboard[entry]);
   			}
   			
+  	},
+		get_entry_request: function(itemId){
+
+  			for (var entry in requestBlackboard){
+  				if(requestBlackboard[entry].id == itemId)
+  					return (requestBlackboard[entry]);
+  			}
+  			
   		}
-		
 	}
 })
 
