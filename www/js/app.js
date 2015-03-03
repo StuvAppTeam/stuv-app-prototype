@@ -148,6 +148,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       		controller: 'WohnungCtrl'
       	}
       }
+    })
+    .state('app.wohnungitem', {
+    	url: "/wohnungsmarkt/:wohnungsId",
+    	views: {
+    		'menuContent' :{
+    			templateUrl: "templates/wohnungsitem.html",
+    			controller: 'WohnungItemCtrl'
+    		}
+    	}
     });
     
   // if none of the above states are matched, use this as the fallback
