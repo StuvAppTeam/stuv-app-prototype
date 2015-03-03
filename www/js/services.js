@@ -3,38 +3,36 @@ angular.module('starter.services', [])
 .factory('News', function($http){
 	
 	var news = [];
+	var stuvnews = [ ];
+	var dhbwnews = [ ];
   
   	
   
   	$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			news.push(data[i]);
+  			 if(news[i].author == 'stuv')
+  			stuvnews.push(news[i]);
+  			 if(news[i].author == 'dhbw')
+  			dhbwnews.push(news[i]);
   		}
   	})
-  
-  	
   
   return {
   	all: function() {
   		return news;
   	},
   	get: function(newsId){
-  		return news[newsId];
+  		  for (var entry in news){
+  			if(news[entry].id == newsId)
+  					return (news[entry]);
+  				}
   	},
   	all_stuv: function() {
-  		var stuvnews = [ ];
-  		for(var article in news){
-  			if(news[article].author == 'stuv')
-  			 stuvnews.push(news[article]);
-  		};
   		return stuvnews;
   	},
   	all_dhbw: function() {
-		var dhbwnews = [ ];
-		for(var article in news){
-			if(news[article].author == 'dhbw')
-			 dhbwnews.push(news[article]);
-		};
+
 	return dhbwnews;
 	},
 	push_news: function(newNews){

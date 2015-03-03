@@ -1,5 +1,5 @@
 [{
-  "article": 1,
+	"id": 1,
   "author": "stuv",
   "headline": "Neue Kursangebote",
   "teaser": "jetzt online",
@@ -7,7 +7,7 @@
 }
 ,
 {
-  "article": 2,
+"id" : 2,
   "author": "dhbw",
   "headline": "Neue Masterkurse",
   "teaser": "Informatik in Konstanz",

@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
 	$scope.swipeDown = function() {
 		var news = [];
 		var exists = false;
-		$http.get('http://localhost:3000/news.json').success(function(data,status){
+		$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			exists = false;
   			for(var j = 0; j < News.all().length; j++){	
