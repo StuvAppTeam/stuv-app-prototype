@@ -149,7 +149,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       	}
       }
     })
-    .state('app.wohnungitem', {
+    .state('app.wohnungsitem', {
     	url: "/wohnungsmarkt/:wohnungsId",
     	views: {
     		'menuContent' :{
