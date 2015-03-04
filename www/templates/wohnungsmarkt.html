@@ -15,7 +15,7 @@
 		</div>
 		
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
@@ -36,7 +36,7 @@
         </div>
         
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
