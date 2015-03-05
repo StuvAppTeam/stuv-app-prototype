@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 
 .controller('AppCtrl', function($scope) {
 
@@ -85,6 +85,7 @@ angular.module('starter.controllers', [])
 //Controller für die Anzeige der Gebäude
 .controller('CampusItemCtrl', function($scope, $stateParams, Campus){
 	$scope.standorte = Campus.get($stateParams.campusId);
+	$scope.map = { center: { latitude: 47.779737, longitude: 9.613558 }, zoom: 20 };
 })
 
 .controller('SbrettCtrl', function($scope, Sbrett){

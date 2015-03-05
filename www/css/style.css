@@ -12,3 +12,4 @@
 .item-accordion.ng-hide-remove {
   display: block !important;
 }
+.angular-google-map-container { height: 400px; }
