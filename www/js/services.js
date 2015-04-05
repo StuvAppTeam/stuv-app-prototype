@@ -1,5 +1,7 @@
 angular.module('starter.services', [])
 
+
+//News Service
 .factory('News', function($http){
 	
 	var news = [];
@@ -7,7 +9,7 @@ angular.module('starter.services', [])
 	var dhbwnews = [ ];
   
   	
-  
+  	//HTTP GET Request
   	$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			news.push(data[i]);
@@ -18,7 +20,9 @@ angular.module('starter.services', [])
   		}
   	})
   
+  //Definition der Funktionen
   return {
+
   	all: function() {
   		return news;
   	},
@@ -44,6 +48,8 @@ angular.module('starter.services', [])
 	
 })
 
+
+//Speiseplan Service
 .factory('Mensa', function(){
 	
 	var speiseplan = [{day: 'Montag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 0}, 
@@ -51,7 +57,9 @@ angular.module('starter.services', [])
 				{day: 'Mittwoch', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 2},
 				{day: 'Donnerstag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 3},
 				{day: 'Freitag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 4}];
-				
+	
+	
+	//Definition der Funktionen			
 	return{
 		all: function(){
 			return speiseplan;
@@ -59,6 +67,7 @@ angular.module('starter.services', [])
 	}
 })
 
+//Freizeitangebot Service
 .factory('Fangebot', function(){
 	
 	var fangebot = [{title: 'Fußball', description: 'lorem ipsum........', contact: 'Max Mustermann', contact_phone:'0158762362', contact_mail:'max@mustermann.com', location: 'Sporthalle Weststadt', location_adress: 'Bergstr.25', category: 'sport' , id: 0},
@@ -71,7 +80,7 @@ angular.module('starter.services', [])
 				{title: 'Namen tanzen', description: 'lorem ipsum........',contact: 'Max Mustermann', contact_phone:'0123991321', contact_mail:'max@mustermann.com', location: 'Sporthalle Weststadt', location_adress: 'Bergstr.25', category: 'unterhaltung', id: 7},
 				{title: 'Geocaching', description: 'lorem ipsum........', contact: 'Max Mustermann', contact_phone:'0123991321', contact_mail:'max@mustermann.com', location: 'Sporthalle Weststadt', location_adress: 'Bergstr.25', category: 'unterhaltung', id: 8}];
 	
-	
+	//Definition der Funktionen
 	return {
 		all: function(){
 			return fangebot;
@@ -101,6 +110,7 @@ angular.module('starter.services', [])
 	}
 })
 
+//Kalender Service
 .factory('Kalender', function(){
 	
 	var dat = new Date();
@@ -116,7 +126,8 @@ angular.module('starter.services', [])
 					{title: 'Ladys Night', description: 'blablalablalalsldalsdnlakbndjksbgklsbgjklsbjkdsvkslnvjlsbaslbvjklsabfdjlksa', location: 'Hugos Ravensburg', date: '14.11.2014', id: 1},
 					{title: 'Test1', description: 'blablalablalalsldalsdnlakbndjksbgklsbgjklsbjkdsvkslnvjlsbaslbvjklsabfdjlksa', location: 'Hugos Ravensburg', date: '14.11.2014', id: 2},
 					{title: 'Test2', description: 'blablalablalalsldalsdnlakbndjksbgklsbgjklsbjkdsvkslnvjlsbaslbvjklsabfdjlksa', location: 'Hugos Ravensburg', date: '14.11.2014', id: 3}];
-					
+	
+	//Definition der Funktionen				
 	return{
 		get_dates: function(){
 			return anzeige;
@@ -124,6 +135,7 @@ angular.module('starter.services', [])
 	}
 })
 
+//Campus Service
 .factory('Campus', function(){
 	var standorte = [{name: 'Marienplatz', adress: 'Marienplatz 1', plz: '88212', city: 'Ravensburg', description: 'Im Gebäude Marienplatz 2 sind das Rektorat, die Verwaltung sowie die Stabstellen des Rektorats untergebracht. Zudem finden Sie hier die Studiengänge Wirtschaftsinformatik und Wirtschaftsingenieurwesen, das TV- und Hörfunkstudio sowie das Mac-Labor des Studiengangs Mediendesign. ', time: '7:00 - 22:30', id: 0},
 					{name: 'Kloesterle', adress: 'Rudolfstraße 123', plz: '88212', city: 'Ravensburg', description: 'Im „Klösterle“ in der Rudolfstraße 19 finden Sie die DHBW-Bibliothek des Campus Ravensburg, das Kulinarische Entwicklungszentrum sowie die betriebswirtschaftlichen Studiengänge Tourismus, Hotellerie und Gastronomie mit den vier Vertiefungsrichtungen Reiseverkehrsmanagement, Hotel- und Gastronomiemanagement, Destinations- und Kurortemanagement sowie Freizeitwirtschaft.', time: '7:00 - 22:30', id: 1},
@@ -131,7 +143,8 @@ angular.module('starter.services', [])
 					{name: 'Oberamteigasse', adress: 'Oberamteigasse 1', plz: '88212', city: 'Ravensburg', description: 'Im Gebäude Oberamteigasse 4 sind die Studiengänge Medien- und Kommunikationswirtschaft mit den drei Vertiefungen Journalismus – PR, Verlage – Hörfunk – TV und Werbung sowie der Studiengang Mediendesign untergebracht.', time: '7:00 - 22:30', id: 3},
 					{name: 'Marktstraße', adress: 'Marktstraße 1', plz: '88212', city: 'Ravensburg', description: 'Am Standortmarktstraße sind die Studiengänge Industrie, International Business sowie Bank zu finden. Ferner finden Sie hier auch den Verein der Förderer und Alumni der Dualen Hochschule Ravensburg e.V.', time: '7:00 - 22:30', id: 4},
 					{name: 'Weinbergstraße', adress: 'Weinbergstraße 17', plz: '88212', city: 'Ravensburg', description: 'In der Weinbergstraße 17 finden Sie die Studiengänge Handel – Vertriebsmanagement, Handel – Textilmanagement, Finanzdienstleistungen sowie die Vertiefungsrichtung Medien- und Kommunikationswirtschaft: Digitale Medien.', time: '7:00 - 22:30', id: 5}];
-					
+	
+	//Definition der Funktionen				
 	return {
 		all: function(){
 			return standorte;
@@ -142,32 +155,35 @@ angular.module('starter.services', [])
 	}
 })
 
+//Schwarzes Brett Service
 .factory('Sbrett', function($http){
 	
 	var offerBlackboard = [];
 	var categories = [];
 	var requestBlackboard = [];
 	
-	
+	//Laden der Angebote des schwarzen Bretts
   	$http.get('Testdaten/OfferBlackboard.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			offerBlackboard.push(data[i]);
   		}
   	});
   	
+  	//Laden der Gesuche des schwarzen Bretts
   	$http.get('Testdaten/RequestBlackboard.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			requestBlackboard.push(data[i]);
   		}
   	});
   	
+  	//Laden der einzelnen Kategorien
   	$http.get('Testdaten/Category.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			categories.push(data[i]);
   		}
   	});
   	
-  // Request JSON einbinden	
+  	// Definition der Funktionen	
   	return{
 		all: function(){
 			return offerBlackboard;
@@ -219,22 +235,26 @@ angular.module('starter.services', [])
 	}
 })
 
+//Wohnungsmarkt Service
 .factory('Wohnung', function($http){
 	var OfferApartment = [];
 	var RequestApartment = [];
-	
+		
+		//Laden der Wohnungsmarkt Angebote
 	  	$http.get('Testdaten/OfferApartment.json').success(function(data,status){
-  		for (var i = 0; i < data.length; i++){
-  			OfferApartment.push(data[i]);
-  		}
-  	});
-  	
-  		 $http.get('Testdaten/RequestApartment.json').success(function(data,status){
-  		for (var i = 0; i < data.length; i++){
-  			RequestApartment.push(data[i]);
-  		}
-  	});
+	  		for (var i = 0; i < data.length; i++){
+	  			OfferApartment.push(data[i]);
+	  		}
+  		});
+  		
+  		//Laden der Wohnungsmarkt Gesuche
+  		$http.get('Testdaten/RequestApartment.json').success(function(data,status){
+	  		for (var i = 0; i < data.length; i++){
+	  			RequestApartment.push(data[i]);
+	  		}
+	  	});
 	
+	//Definition der Funktionen
 	return {
 		all_offer: function(){
 			return OfferApartment;
@@ -247,12 +267,12 @@ angular.module('starter.services', [])
   				if(OfferApartment[entry].id == wohnungsId)
   					return (OfferApartment[entry]);
 				}
-	},
-			get_entry_request: function(wohnungsId) {
-			  for (var entry in RequestApartment){
-  				if(RequestApartment[entry].id == wohnungsId)
-  					return (RequestApartment[entry]);
+		},
+		get_entry_request: function(wohnungsId) {
+			for (var entry in RequestApartment){
+				if(RequestApartment[entry].id == wohnungsId)
+					return (RequestApartment[entry]);
 				}
-	}
+		}
 	}
 })

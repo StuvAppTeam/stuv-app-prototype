@@ -20,26 +20,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
+//Konfiguration des App Routings. Für genauere Dokumentation der Funktionsweise: ui-router oder ionic-router
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
 
+//Festlegen der Route für das SideMenu
     .state('app', {
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
     })
-
+    
+//Festlegen der Route für den Mensa Speiseplan
     .state('app.mensa', {
       url: "/mensa",
       views: {
         'menuContent' :{
+     	  //Verlinkung des HTML Templates, welches bei dieser Route angezeigt werden soll
           templateUrl: "templates/mensa.html",
+          //Angabe des Controllers, der für die gesamte angezeigte Seite verwendet wird
           controller: 'MensaCtrl'
         }
       }
     })
     
+//Festlegen der Route für das Freizeitangebot der StuV
     .state('app.fangebot', {
       url: "/fangebot",
       views: {
@@ -50,6 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
     
+//Festlegen der Route für einzelne Freizeitangebote
     .state('app.fangebotitem', {
     	url: '/fangebot/:fangebotId',
     	views: {
@@ -59,7 +66,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     		}
     	}
     })
-
+    
+//Festlegen der Route für den Event-Kalender
     .state('app.kalender', {
       url: "/kalender",
       views: {
@@ -70,6 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
     
+//Festlegen der Route für die Standort Informationen    
     .state('app.campus', {
     	url: '/campus',
     	views: {
@@ -80,6 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     	}
     })
     
+//Festlegen der Route für die einzelnen Standorte    
     .state('app.campusitem', {
     	url: '/campus/:campusId',
     	views: {
@@ -90,6 +100,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     	}
     })
     
+//Festlegen der Route für News der StuV oder der DHBW    
     .state('app.news', {
       url: "/news",
       views: {
@@ -100,6 +111,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+//Festlegen der Route für einzelne Neuigkeiten
     .state('app.newsitem', {
       url: "/news/:newsId",
       views: {
@@ -110,6 +122,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
     
+//Festlegen der Route für alle Angebote im schwarzen Brett    
     .state('app.sbrett', {
     	url: "/sbrett",
     	views: {
@@ -120,6 +133,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     		}
     })
     
+//Festlegen der Route für die einzelnen Kategorien im schwarzen Brett    
      .state('app.sbrettcategory', {
       url: "/sbrett/:categoriesId",
       views: {
@@ -130,6 +144,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
      
+//Festlegen der Route für einzelne Angebote     
      .state('app.sbrettcategoryitemoffer', {
       url: "/:categories/offer/:itemId",
       views: {
@@ -140,6 +155,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+//Festlegen der Route für einzelne Gesuche
      .state('app.sbrettcategoryitemrequest', {
       url: "/:categories/request/:itemId",
       views: {
@@ -149,6 +165,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    
+//Festlegen der Route für den Wohnungsmarkt
     .state('app.wohnungsmarkt', {
       url: "/wohnungsmarkt",
       views: {
@@ -158,6 +176,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       	}
       }
     })
+ 
+//Festlegen der Route für einzelne Wohnungsangebote
     .state('app.wohnungsitemoffer', {
     	url: "/wohnungsmarkt/offerApa/:wohnungsId",
     	views: {
@@ -167,6 +187,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     		}
     	}
     })
+    
+//Festlegen der Route für Wohnungsgesuche
         .state('app.wohnungsitemrequest', {
     	url: "/wohnungsmarkt/requestApa/:wohnungsId",
     	views: {
@@ -176,6 +198,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     		}
     	}
     });
+    
+    
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/news');
   // Tab Reiter bei Android auch unten und nicht oben

@@ -40,6 +40,8 @@ module.exports = (grunt) ->
     allExamplesOpen[root] =
       path: pathValue
 
+#  console.log allExamplesOpen, true
+
   showOpenType = (toIterate = allExamplesOpen) ->
     _(toIterate).each (v, k) ->
       log "#{k} -> #{v.path}"
@@ -86,14 +88,18 @@ module.exports = (grunt) ->
   # and running a webserver on port 3100 with livereload. Web page is opened
   # automatically in the default browser.
 
+  grunt.registerTask 'bump-@-preminor', ['bump-only:preminor', 'mappAll', 'bump-commit']
+  grunt.registerTask 'bump-@-prerelease', ['bump-only:prerelease', 'mappAll', 'bump-commit']
   grunt.registerTask 'bump-@', ['bump-only', 'mappAll', 'bump-commit']
   grunt.registerTask 'bump-@-minor', ['bump-only:minor', 'mappAll', 'bump-commit']
   grunt.registerTask 'bump-@-major', ['bump-only:major', 'mappAll', 'bump-commit']
 
   exampleOpenTasks = []
-  _(allExamplesOpen).each (v, key) ->
+
+  _.each allExamplesOpen, (v, key) ->
     basicTask = "open:" + key
     #register individual task (runs by itself)
+
     grunt.registerTask key, ["fast", "clean:example", "connect:server", basicTask, "watch:all"]
     exampleOpenTasks.push basicTask
 

@@ -1,3 +1,5 @@
+<!-- Anzeige der einzelnen Standorte der DHBW Ravensburg -->
+
 <ion-view view-title="{{standorte.name}}">
 	<ion-content class="has-header">
 
@@ -14,6 +16,7 @@
 			<div class="item item-body">
 				<p>
 					{{standorte.description}}
+					<!-- Einbinden der Google Maps API -->
 					<ui-gmap-google-map center='map.center' zoom='map.zoom'>
 						<ui-gmap-marker coords="{ latitude: 47.779737, longitude: 9.613558 }" idKey = 1></ui-gmap-marker>
 					</ui-gmap-google-map>

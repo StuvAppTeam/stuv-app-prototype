@@ -1,10 +1,14 @@
+<!-- Liste aller Standorte der DHBW Ravensburg -->
+
 <ion-view view-title="Campus">
+	<!-- Anzeige des Back Buttons in der Navigationsleiste -->
 	<ion-nav-buttons side="left">
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
+
 	<ion-content>
-	
+				<!-- Anzeige aller Universitätsstandorte -->
 				<div class="list">
 					<a class="item" href="#/app/campus/{{standort.id}}" ng-repeat="standort in standorte"> 
 						<h3>{{standort.name}}</h3>

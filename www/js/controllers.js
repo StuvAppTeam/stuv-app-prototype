@@ -5,13 +5,18 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 })
 //Controller für die Anzeige der News
 .controller('NewsCtrl', function($scope, $http, News) {
+	//Deklaration der verwendeten Arrays
 	$scope.allNews = News.all();
 	$scope.stuvNews = News.all_stuv();
 	$scope.dhbwNews = News.all_dhbw();
 	
+	
+	//Aktualisierung der Anzeige nach einem swipe Down des Benutzers
 	$scope.swipeDown = function() {
 		var news = [];
 		var exists = false;
+		
+		//HTTP GET Request, der die Daten im JSON Format vom Webserver lädt und diese an das Array anfügt
 		$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			exists = false;
