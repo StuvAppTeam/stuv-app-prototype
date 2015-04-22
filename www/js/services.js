@@ -163,7 +163,7 @@ angular.module('starter.services', [])
 	var requestBlackboard = [];
 	
 	//Laden der Angebote des schwarzen Bretts
-  	$http.get('Testdaten/OfferBlackboard.json').success(function(data,status){
+  	$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			offerBlackboard.push(data[i]);
   		}
