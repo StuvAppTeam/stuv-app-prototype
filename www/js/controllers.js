@@ -14,7 +14,7 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 	//Aktualisierung der Anzeige nach einem swipe Down des Benutzers
 	$scope.swipeDown = function() {
 		var news = [];
-		var exists = false;genda
+		var exists = false;
 		
 		//HTTP GET Request, der die Daten im JSON Format vom Webserver lädt und diese an das Array anfügt
 		$http.get('Testdaten/News.json').success(function(data,status){

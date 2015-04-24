@@ -50,13 +50,17 @@ angular.module('starter.services', [])
 
 
 //Speiseplan Service
-.factory('Mensa', function(){
+.factory('Mensa', function($http){
 	
-	var speiseplan = [{day: 'Montag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 0}, 
-				{day: 'Dienstag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 1},
-				{day: 'Mittwoch', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 2},
-				{day: 'Donnerstag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 3},
-				{day: 'Freitag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 4}];
+	var speiseplan = [];
+	
+	//Laden der Einzelnen Inhalte des Speiseplans
+  	$http.get('https://stuvapp.herokuapp.com/mensas.json').success(function(data,status){
+  		for (var i = 0; i < data.length; i++){
+  			speiseplan.push(data[i]);
+  		}
+  	});
+  	
 	
 	
 	//Definition der Funktionen			
