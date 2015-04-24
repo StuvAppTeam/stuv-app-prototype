@@ -9,27 +9,31 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 	$scope.allNews = News.all();
 	$scope.stuvNews = News.all_stuv();
 	$scope.dhbwNews = News.all_dhbw();
-	
-	
+
+
 	//Aktualisierung der Anzeige nach einem swipe Down des Benutzers
 	$scope.swipeDown = function() {
 		var news = [];
 		var exists = false;
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> ed62d99ebc5fbbd2e6d552ec42f1a654fadeae1b
 		//HTTP GET Request, der die Daten im JSON Format vom Webserver lädt und diese an das Array anfügt
 		$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			exists = false;
-  			for(var j = 0; j < News.all().length; j++){	
+  			for(var j = 0; j < News.all().length; j++){
   				if(News.all()[j].id == data[i].id)
   					exists = true;
   				}
-  				if(exists == false)
+  				if(exists === false)
   					news.push(data[i]);
   		}
-  		
+
   		News.push_news(news);
-  		})
+		});
 	};
 })
 //Controller für die Anzeige einzelner Artikel
@@ -106,12 +110,12 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 
 .controller('SbrettCategoryItemCtrlOffer', function($scope, $stateParams, Sbrett) {
 	$scope.item = Sbrett.get_entry_offer($stateParams.itemId);
-	
+
 })
 
 .controller('SbrettCategoryItemCtrlRequest', function($scope, $stateParams, Sbrett) {
 	$scope.item = Sbrett.get_entry_request($stateParams.itemId);
-	
+
 })
 
 //Controller für die Auswahl einer Wohnung
@@ -128,4 +132,4 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 //Controller für einzelnen Wohnung
 .controller('WohnungItemCtrlRequest', function($scope, $stateParams, Wohnung) {
 	$scope.Wohnungitem = Wohnung.get_entry_request($stateParams.wohnungsId);
-})
+});
