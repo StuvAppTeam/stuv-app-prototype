@@ -52,19 +52,21 @@ angular.module('starter.services', [])
 //Speiseplan Service
 
 .factory('Mensa', function($http){
-	
+
 	var speiseplan = [];
-	
+
 	//Laden der Einzelnen Inhalte des Speiseplans
   	$http.get('https://stuvapp.herokuapp.com/mensas.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			speiseplan.push(data[i]);
   		}
   	});
-  	
-	
-	
-	//Definition der Funktionen			
+})
+
+
+
+
+	//Definition der Funktionen
 
 .factory('Mensa', function(){
 

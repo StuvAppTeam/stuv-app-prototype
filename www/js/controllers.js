@@ -15,11 +15,7 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 	$scope.swipeDown = function() {
 		var news = [];
 		var exists = false;
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> ed62d99ebc5fbbd2e6d552ec42f1a654fadeae1b
 		//HTTP GET Request, der die Daten im JSON Format vom Webserver lädt und diese an das Array anfügt
 		$http.get('Testdaten/News.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
