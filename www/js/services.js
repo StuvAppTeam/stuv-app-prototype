@@ -61,13 +61,19 @@ angular.module('starter.services', [])
   			speiseplan.push(data[i]);
   		}
   	});
+
+		return{
+			all: function(){
+				return speiseplan;
+			}
+		};
 })
 
 
 
 
 	//Definition der Funktionen
-
+/*
 .factory('Mensa', function(){
 
 	var speiseplan = [{day: 'Montag', menu1: 'Schnitzel mit Pommes', menu2: 'Gemüseauflauf', id: 0},
@@ -85,7 +91,7 @@ angular.module('starter.services', [])
 		}
 	};
 })
-
+*/
 //Freizeitangebot Service
 .factory('Fangebot', function(){
 
@@ -182,7 +188,7 @@ angular.module('starter.services', [])
 	var requestBlackboard = [];
 
 	//Laden der Angebote des schwarzen Bretts
-  	$http.get('http://stuvapp.heroku.com/offer_blackboards.json').success(function(data,status){
+  	$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			offerBlackboard.push(data[i]);
   		}
@@ -218,7 +224,7 @@ angular.module('starter.services', [])
 	  	var offers = [ ];
 	  	// Schleife für Elemente in Request
 	  	for (var  i in offerBlackboard){
-	  		if(offerBlackboard[i].categoryid-1 == categoriesId)
+	  		if(offerBlackboard[i].category_id == categoriesId)
 	  			offers.push(offerBlackboard[i]);
 	  	}
 
@@ -229,7 +235,7 @@ angular.module('starter.services', [])
 	  	var requests = [ ];
 	  	// Schleife für Elemente in Request
 	  	for (var  i in requestBlackboard){
-	  		if(requestBlackboard[i].categoryid-1 == categoriesId)
+	  		if(requestBlackboard[i].category_id == categoriesId)
 	  			requests.push(requestBlackboard[i]);
 	  	}
 

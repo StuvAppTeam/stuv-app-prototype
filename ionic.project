@@ -1,6 +1,6 @@
 {
   "name": "stuv-app-prototype",
-  "app_id": "",
+  "app_id": "6b1e9e5c",
   "gulpStartupTasks": [
     "sass",
     "watch"

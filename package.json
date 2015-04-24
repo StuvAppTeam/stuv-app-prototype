@@ -17,5 +17,9 @@
   "repository": {
     "type": "git",
     "url": "http://github.com/StuvAppTeam/stuv-app-prototype.git"
-  }
+  },
+  "cordovaPlugins": [],
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }
