@@ -3,7 +3,7 @@
 <ion-view view-title="{{standorte.name}}">
 	<ion-content class="has-header">
 
-		<div class="list card">
+		<div class="list card" ng-Controller="MapCtrl">
 			<div class="item item-avatar">
 				<img src="img/{{standorte.name}}.jpg">
 				<h2>{{standorte.name}}</h2>
@@ -16,11 +16,11 @@
 			<div class="item item-body">
 				<p>
 					{{standorte.description}}
-					<!-- Einbinden der Google Maps API -->
-					<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-						<ui-gmap-marker coords="{ latitude: 47.779737, longitude: 9.613558 }" idKey = 1></ui-gmap-marker>
-					</ui-gmap-google-map>
 				</p>
+					<!-- Einbinden der Google Maps API -->
+					<div id="map" style="height: 100%; width: 100%;" dat-tap-disabled="true" >
+					</div>
+
 			</div>
 		</div>
 	</ion-content>

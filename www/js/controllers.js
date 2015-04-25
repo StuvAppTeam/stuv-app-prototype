@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['uiGmapgoogle-maps'])
+angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope) {
 
@@ -90,7 +90,6 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 //Controller für die Anzeige der Gebäude
 .controller('CampusItemCtrl', function($scope, $stateParams, Campus){
 	$scope.standorte = Campus.get($stateParams.campusId);
-	$scope.map = { center: { latitude: 47.779737, longitude: 9.613558 }, zoom: 20 };
 })
 
 .controller('SbrettCtrl', function($scope, Sbrett){
@@ -128,4 +127,31 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps'])
 //Controller für einzelnen Wohnung
 .controller('WohnungItemCtrlRequest', function($scope, $stateParams, Wohnung) {
 	$scope.Wohnungitem = Wohnung.get_entry_request($stateParams.wohnungsId);
+})
+
+
+.controller('MapCtrl', function($scope, $ionicLoading) {
+
+		ionic.Platform.ready(function() {
+        var myLatlng = new google.maps.LatLng(12.96,77.65);
+
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLocation = new google.maps.Marker({
+                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                map: map,
+                title: "My Location"
+            });
+					});
+
+					        $scope.map = map;
+					    });
 });
