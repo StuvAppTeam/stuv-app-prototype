@@ -217,8 +217,11 @@ angular.module('starter.services', [])
 			return categories;
 		},
 		get: function(categoriesId){
-		return categories[categoriesId];
-	  	},
+			for (var entry in categories){
+				if(categories[entry].id == categoriesId)
+					return (categories[entry]);
+	  	}
+		},
 	  	all_offers_in_category: function(categoriesId){
 
 	  	var offers = [ ];
