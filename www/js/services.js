@@ -112,7 +112,10 @@ angular.module('starter.services', [])
 		},
 
 	  	get: function(fangebotId){
-  			return fangebot[fangebotId];
+				for (var entry in fangebot){
+					if(fangebot[entry].id == standorteId)
+						return (fangebot[entry]);
+				}
   		},
 
   		all_sport: function() {
@@ -175,7 +178,10 @@ angular.module('starter.services', [])
 			return standorte;
 		},
 		get: function(standorteId){
-			return standorte[standorteId];
+			for (var entry in standorte){
+				if(standorte[entry].id == standorteId)
+					return (standorte[entry]);
+			}
 		}
 	};
 })

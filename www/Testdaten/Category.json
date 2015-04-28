@@ -1,47 +1,41 @@
 [{
   "id": 1,
   "name": "Mitfahrgelegenheiten",
-  "imgsrc": "mitfahrgelegenheit.jpg"
+  "imgsrc": "mitfahrgelegenheit.png"
 }
 ,
 {
   "id": 3,
   "name": "Elektronik",
-   "imgsrc": "category1.jpg"
+   "imgsrc": "elektronik.png"
 }
 ,
 {
   "id": 4,
   "name": "Möbel",
-   "imgsrc": "category1.jpg"
+   "imgsrc": "moebel.png"
 }
 ,
 {
   "id": 5,
   "name": "Bücher",
-   "imgsrc": "category1.jpg"
-}
-,
-{
-  "id": 6,
-  "name": "Kontaktanzeigen",
-   "imgsrc": "category1.jpg"
+   "imgsrc": "buecher.png"
 }
 ,
 {
   "id": 7,
   "name": "Nachhilfe",
-   "imgsrc": "category1.jpg"
+   "imgsrc": "nachhilfe.png"
 }
 ,
 {
   "id": 8,
   "name": "Sonstiges",
-   "imgsrc": "category1.jpg"
+   "imgsrc": "sonstiges.png"
 }
 ,
 {
   "id": 9,
   "name": "Fahrzeuge",
-   "imgsrc": "category1.jpg"
+   "imgsrc": "fahrzeuge.png"
 }]
