@@ -10,15 +10,22 @@ angular.module('starter.services', [])
 
 
   	//HTTP GET Request
-  	$http.get('Testdaten/News.json').success(function(data,status){
+  	$http.get('http://stuvapp.herokuapp.com/dhbw_news.json').success(function(data,status){
   		for (var i = 0; i < data.length; i++){
   			news.push(data[i]);
-  			 if(news[i].author == 'stuv')
+  			 if(news[i].stuv == true)
   			stuvnews.push(news[i]);
-  			 if(news[i].author == 'dhbw')
+  			 if(news[i].stuv === '')
   			dhbwnews.push(news[i]);
   		}
+			$filter('orderBy')(dhbwnews, 'feedDate');
   	});
+
+
+
+
+
+
 
   //Definition der Funktionen
   return {

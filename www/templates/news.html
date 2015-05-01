@@ -10,16 +10,19 @@
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
 			<ion-content class="has-header" on-swipe-down="swipeDown()">
-		
-					
+
+
 				<div class="list">
-					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in allNews"> 
-						<img src="img/{{news.author}}.jpg"> 
-						<h2>{{news.headline}}</h2>
-						<p>{{news.teaser}}</p> 
+					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in allNews">
+						<img src="img/stuv.jpg" ng-if="news.stuv">
+						<img src="img/dhbw.jpg" ng-if="!news.stuv">
+						<h2 ng-if="news.stuv">StuV</h2>
+						<h2 ng-if="!news.stuv">DHBW</h2>
+						<p>{{news.message}}</p>
+						<p>{{news.feedDate | date:'dd.MM.yyyy'}}</p>
 					</a>
 				</div>
-				
+
 			</ion-content>
 		</ion-tab>
 
@@ -29,16 +32,16 @@
 			<ion-content class="has-header">
 
 				<div class="list">
-					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in dhbwNews"> 
-						<img src="img/{{news.author}}.jpg"> 
-						<h2>{{news.headline}}</h2>
-						<p>{{news.teaser}}</p> 
+					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in dhbwNews">
+						<img src="img/dhbw.jpg">
+						<h2>DHBW</h2>
+						<p>{{news.message}}</p>
 					</a>
 				</div>
-	
+
 			</ion-content>
 		</ion-tab>
-	
+
 
 		<ion-tab title="Stuv">
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
@@ -46,13 +49,13 @@
 			<ion-content class="has-header">
 
 				<div class="list">
-					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in stuvNews"> 
-						<img src="img/{{news.author}}.jpg"> 
-						<h2>{{news.headline}}</h2>
-						<p>{{news.teaser}}</p> 
+					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in stuvNews">
+						<img src="img/stuv.jpg">
+						<h2>StuV</h2>
+						<p>{{news.message}}</p>
 					</a>
 				</div>
-				
+
 			</ion-content>
 		</ion-tab>
 
