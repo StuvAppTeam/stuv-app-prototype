@@ -67,6 +67,14 @@ angular.module('starter.services', [])
 				return speiseplan;
 			}
 		};
+		return{
+			get: function(speiseplanTs){
+				for (var entry in speiseplan){
+					if(speiseplan[entry].timestamp == speiseplanTs)
+						return (speiseplan[entry]);
+				}
+			}
+		};
 })
 
 
