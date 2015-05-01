@@ -38,20 +38,10 @@ angular.module('starter.controllers', [])
 })
 //Controller für die Anzeige des Mensaplans
 .controller('MensaCtrl', function($scope, Mensa) {
-	var date = new Date();
-	var dat = date.getDate();
-	var day = date.getDay();
 
-	var woche = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
 	$scope.fullPlan = Mensa.all();
-
-	$scope.isDay = function(dat) {
-		if (dat == woche[day])
-			return true;
-		else
-			return false;
-	};
+	
 })
 //Controller für das Erstellen von Aufklappmenüs
 .controller('GroupCtrl', function($scope) {
