@@ -4,14 +4,17 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-assertive">
+	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-light">
 
 		<ion-tab title="Alle">
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
-			<ion-content class="has-header" on-swipe-down="swipeDown()">
-
-
+			<ion-content class="has-header">
+				<ion-refresher
+					pulling-text="Loslassen zum aktualisieren"
+					spinner="spiral"
+    			on-refresh="swipeDown()">
+				</ion-refresher>
 				<div class="list">
 					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in allNews">
 						<img src="img/stuv.jpg" ng-if="news.stuv">
@@ -30,12 +33,17 @@
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
 			<ion-content class="has-header">
-
+				<ion-refresher
+					pulling-text="Loslassen zum aktualisieren"
+					spinner="spiral"
+    			on-refresh="swipeDown()">
+				</ion-refresher>
 				<div class="list">
 					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in dhbwNews">
 						<img src="img/dhbw.jpg">
 						<h2>DHBW</h2>
 						<p>{{news.message}}</p>
+						<p>{{news.feedDate | date:'dd.MM.yyyy'}}</p>
 					</a>
 				</div>
 
@@ -47,12 +55,17 @@
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
 			<ion-content class="has-header">
-
+				<ion-refresher
+					pulling-text="Loslassen zum aktualisieren"
+					spinner="spiral"
+					on-refresh="swipeDown()">
+				</ion-refresher>
 				<div class="list">
 					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in stuvNews">
 						<img src="img/stuv.jpg">
 						<h2>StuV</h2>
 						<p>{{news.message}}</p>
+						<p>{{news.feedDate | date:'dd.MM.yyyy'}}</p>
 					</a>
 				</div>
 

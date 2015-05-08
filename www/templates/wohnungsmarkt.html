@@ -4,13 +4,13 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-assertive">
-    <ion-tab title="Suche"> 
+	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-light">
+    <ion-tab title="Suche">
 		<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
-    
+
 	<ion-content >
-		
+
 		<div class="bar bar-header item-input-inset">
 			<label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
 				<input type="search" placeholder="Suche">
@@ -19,18 +19,18 @@
 				Suchen
 			</button>
 		</div>
-		
+
         <div class="list" >
                 <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
         </div>
-		
+
 	</ion-content>
 	 </ion-tab>
-	
-	    <ion-tab title="Biete"> 
+
+	    <ion-tab title="Biete">
 	    		<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
     <ion-content class="has-footer has-header">
@@ -42,16 +42,15 @@
                 Suchen
             </button>
         </div>
-        
+
         <div class="list" >
                 <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
         </div>
-        
+
     </ion-content>
      </ion-tab>
         </ion-tabs>
 </ion-view>
-       

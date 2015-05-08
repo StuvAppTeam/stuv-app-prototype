@@ -15,9 +15,9 @@
 		</div>
 
 
-				<div class="list" >
+				<div class="list" ng-Controller="ImageCtrl">
 						<a class="item item-thumbnail-left" ng-repeat = "category in Categories" href="#/app/sbrett/{{category.id}}">
-							<img src="img/Category/{{category.imgsrc}}">
+							<img src="{{CategoryImage.url}}">
 							<h2>{{category.name}}</h2>
 						</a>
 				</div>

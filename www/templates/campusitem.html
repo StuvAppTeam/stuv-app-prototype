@@ -17,10 +17,11 @@
 				<p>
 					{{standorte.description}}
 					<!-- Einbinden der Google Maps API -->
-					</div>
-					<div id="map" style="height: 100%; width: 100%;" dat-tap-disabled="true" ng-Controller="MapCtrl">
-					</div>
 				</p>
+				<div class="box" ng-Controller="MapCtrl" >
+					<map on-create="mapCreated(map)"  ng-init="setMarker(standorte)" ></map>
+				</div>
+			</div>
 		</div>
 
 

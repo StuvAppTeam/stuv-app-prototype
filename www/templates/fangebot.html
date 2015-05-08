@@ -5,13 +5,17 @@
 	</ion-nav-buttons>
 
 	<!-- Anlegen von Tabs zur Anzeige von Sport oder Unterhaltungs Angeboten -->
-	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-assertive">
+	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-light">
 
 		<ion-tab title="Sport">
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
 			<ion-content class="has-header">
-
+				<ion-refresher
+					pulling-text="Loslassen zum aktualisieren"
+					spinner="spiral"
+					on-refresh="swipeDown()">
+				</ion-refresher>
 				<div class="list">
 					<div ng-repeat = "activity in sportFangebot">
 						<a class="item item-divider" style="background-color: grey" href="#/app/fangebot/{{activity.id}}">
@@ -27,7 +31,11 @@
 				<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
 			<ion-content class="has-header">
-
+				<ion-refresher
+					pulling-text="Loslassen zum aktualisieren"
+					spinner="spiral"
+					on-refresh="swipeDown()">
+				</ion-refresher>
 				<div class="list" >
 					<div ng-repeat = "activity in unterhaltungFangebot">
 						<a class="item item-divider" style="background-color: grey" href="#/app/fangebot/{{activity.id}}">

@@ -1,7 +1,27 @@
 <!-- Template für einzelne Neuigkeiten -->
 <ion-view view-title="News">
+
   <ion-content class="has-header">
-    <h1>{{news.message}}</h1>
-    <p>{{news.content}}</p>
+
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/stuv.jpg" ng-if="news.stuv">
+        <img src="img/dhbw.jpg" ng-if="!news.stuv">
+        <h2 ng-if="news.stuv">StuV</h2>
+        <h2 ng-if="!news.stuv">DHBW</h2>
+        <p>
+          {{news.feedDate | date:'dd.MM.yyyy'}}
+        </p>
+      </div>
+
+
+      <div class="item item-body">
+        <p>{{news.message}}
+          <br />
+        <a href="{{news.link}}">mehr...</a>
+        </p>
+        <img src="{{news.picture}}" style="width: 100%;">
+      </div>
+  </div>
   </ion-content>
 </ion-view>

@@ -5,19 +5,23 @@
 	</ion-nav-buttons>
 
 	<ion-content>
-	
+		<ion-refresher
+			pulling-text="Loslassen zum aktualisieren"
+			spinner="spiral"
+			on-refresh="swipeDown()">
+		</ion-refresher>
 		<div class="list" ng-controller="GroupCtrl">
 			<div ng-repeat = "(key, value) in fullPlan |orderBy: 'timestamp' | groupBy: 'timestamp'">
-				<div class="item item-divider" style="background-color: grey" ng-click="toggleGroup(key)" ng-class="{active: isGroupShown(key)}">
+				<div class="item menu-bar" ng-click="toggleGroup(key)" ng-class="{active: isGroupShown(key)}">
 					<mydate>{{key | date:'EEE, d.MM.yy'}}</mydate>
 				</div>
-	
+
 				<div class="item-accordion" ng-show="isGroupShown(key)">
 					<!--<div class="item-divider" ng-repeat = "menu in value">&nbsp;&nbsp;{{menu.category}}</div>-->
 					<p ng-repeat = "menu in value" style="margin: 20px;"><b>{{menu.category}}:</b> {{menu.title}}</p>
 				</div>
 			</div>
 		</div>
-		
+
 	</ion-content>
 </ion-view>

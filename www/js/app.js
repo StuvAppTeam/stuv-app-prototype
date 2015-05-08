@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.directives','angular.filter'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','angular.filter','starter.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -204,4 +204,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','s
   $urlRouterProvider.otherwise('/app/news');
   // Tab Reiter bei Android auch unten und nicht oben
   $ionicConfigProvider.tabs.position('bottom');
+
+  // Ausblenden des Textes im Back Button
+  $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
 });
