@@ -134,29 +134,13 @@ angular.module('starter.services', [])
 
 
 //Schwarzes Brett Service
-.factory('Sbrett', function($http){
+.factory('Sbrett', function(){
 
-	var offerBlackboard = [];
-	var requestBlackboard = [];
-
-	//Laden der Angebote des schwarzen Bretts
-  	$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
-  		for (var i = 0; i < data.length; i++){
-  			offerBlackboard.push(data[i]);
-  		}
-  	});
-
-  	//Laden der Gesuche des schwarzen Bretts
-  	$http.get('Testdaten/RequestBlackboard.json').success(function(data,status){
-  		for (var i = 0; i < data.length; i++){
-  			requestBlackboard.push(data[i]);
-  		}
-  	});
 
   	// Definition der Funktionen
   	return{
 		all: function(){
-			return offerBlackboard;
+      return JSON.parse(window.localStorage.blackboard || '{}');
 		},
 		all_categories: function(){
 			return JSON.parse(window.localStorage.categories || '{}');
@@ -169,6 +153,16 @@ angular.module('starter.services', [])
 	      }
 		},
   	all_offers_in_category: function(categoriesId){
+      get_offers = function(){
+        blackboard = JSON.parse(window.localStorage.blackboard || '{}');
+        offers = [];
+        for (var entry in blackboard){
+        if(blackboard[entry].request === false)
+            offers.push(blackboard[entry]);
+        }
+        return offers;
+      };
+      var offerBlackboard = get_offers();
 	  	var offers = [ ];
 	  	// Schleife für Elemente in Request
 	  	for (var  i in offerBlackboard){
@@ -178,6 +172,16 @@ angular.module('starter.services', [])
 			return offers;
 		},
 		all_requests_in_category: function(categoriesId){
+      get_requests = function(){
+        blackboard = JSON.parse(window.localStorage.blackboard || '{}');
+        requests = [];
+        for (var entry in blackboard){
+        if(blackboard[entry].request === true)
+            requests.push(blackboard[entry]);
+        }
+        return requests;
+      };
+      requestBlackboard = get_requests();
 	  	var requests = [ ];
 	  	// Schleife für Elemente in Request
 	  	for (var  i in requestBlackboard){
@@ -186,66 +190,63 @@ angular.module('starter.services', [])
 	  	}
 			return requests;
 		},
-		get_entry_offer: function(itemId){
-			for (var entry in offerBlackboard){
-				if(offerBlackboard[entry].id == itemId)
-					return (offerBlackboard[entry]);
+		get_blackboard: function(itemId){
+      blackboard = JSON.parse(window.localStorage.blackboard || '{}');
+			for (var entry in blackboard){
+				if(blackboard[entry].id == itemId)
+					return (blackboard[entry]);
 			}
   	},
-		get_entry_request: function(itemId){
-			for (var entry in requestBlackboard){
-				if(requestBlackboard[entry].id == itemId)
-					return (requestBlackboard[entry]);
-			}
-		},
 		split_categories: function(data){
 			window.localStorage.categories = JSON.stringify(data);
 			return data;
-		}
+		},
+    split_blackboard: function(data){
+			window.localStorage.blackboard = JSON.stringify(data);
+			return data;
+		},
 	};
 })
 
 
 
 //Wohnungsmarkt Service
-.factory('Wohnung', function($http){
-	var OfferApartment = [];
-	var RequestApartment = [];
-
-		//Laden der Wohnungsmarkt Angebote
-	  	$http.get('Testdaten/OfferApartment.json').success(function(data,status){
-	  		for (var i = 0; i < data.length; i++){
-	  			OfferApartment.push(data[i]);
-	  		}
-  		});
-
-  		//Laden der Wohnungsmarkt Gesuche
-  		$http.get('Testdaten/RequestApartment.json').success(function(data,status){
-	  		for (var i = 0; i < data.length; i++){
-	  			RequestApartment.push(data[i]);
-	  		}
-	  	});
+.factory('Wohnung', function(){
 
 	//Definition der Funktionen
 	return {
+    all: function(){
+      return JSON.parse(window.localStorage.apartment || '{}');
+    },
 		all_offer: function(){
-			return OfferApartment;
+      offer = JSON.parse(window.localStorage.apartment || '{}');
+      offer_return=[];
+      for (var i = 0; i < offer.length; i++){
+        if(offer[i].request === false)
+            offer_return.push(offer[i]);
+      }
+      return offer_return;
 		},
 		all_request: function(){
-			return RequestApartment;
+      request = JSON.parse(window.localStorage.apartment || '{}');
+      request_return=[];
+      for (var i = 0; i < request.length; i++){
+        if(request[i].request === true)
+            request_return.push(request[i]);
+      }
+      return request_return;
 		},
-		get_entry_offer: function(wohnungsId) {
-		  for (var entry in OfferApartment){
-				if(OfferApartment[entry].id == wohnungsId)
-					return (OfferApartment[entry]);
+		get: function(wohnungsId) {
+      apartment = JSON.parse(window.localStorage.apartment || '{}');
+		  for (var entry in apartment){
+				if(apartment[entry].id == wohnungsId)
+					return (apartment[entry]);
 			}
 		},
-		get_entry_request: function(wohnungsId) {
-			for (var entry in RequestApartment){
-				if(RequestApartment[entry].id == wohnungsId)
-					return (RequestApartment[entry]);
-			}
-		}
+    split: function(data){
+      window.localStorage.apartment = JSON.stringify(data);
+      return data;
+    }
 	};
 })
 

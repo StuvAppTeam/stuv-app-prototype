@@ -161,6 +161,11 @@ angular.module('starter.controllers', [])
 	$scope.OfferBlackboard = Sbrett.all();
 	$scope.Categories = Sbrett.all_categories();
 
+	$scope.update_blackboard = function(){
+		$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
+  		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
+  	});
+	};
 
 	$scope.update = function(){
 		$http.get('http://stuvapp.herokuapp.com/categories.json').success(function(data,status){
@@ -172,6 +177,7 @@ angular.module('starter.controllers', [])
 			});
 	};
 	$scope.update();
+	$scope.update_blackboard();
 })
 
 
@@ -185,35 +191,54 @@ angular.module('starter.controllers', [])
 
 
 .controller('SbrettCategoryItemCtrlOffer', function($scope, $stateParams, Sbrett) {
-	$scope.item = Sbrett.get_entry_offer($stateParams.itemId);
+	$scope.item = Sbrett.get_blackboard($stateParams.itemId);
 })
 
 
 
 .controller('SbrettCategoryItemCtrlRequest', function($scope, $stateParams, Sbrett) {
-	$scope.item = Sbrett.get_entry_request($stateParams.itemId);
+	$scope.item = Sbrett.get_blackboard($stateParams.itemId);
 })
 
 
 
 //Controller für die Auswahl einer Wohnung
-.controller('WohnungCtrl', function($scope, Wohnung){
+.controller('WohnungCtrl', function($scope, Wohnung, $http){
 	$scope.OfferApartment = Wohnung.all_offer();
 	$scope.RequestApartment = Wohnung.all_request();
+	$scope.Apartment = Wohnung.all();
+
+	$scope.update = function(){
+		$http.get('http://stuvapp.herokuapp.com/apartments.json').success(function(data,status){
+			$scope.Apartment = Wohnung.split(data);
+			$scope.OfferApartment = Wohnung.all_offer();
+			$scope.RequestApartment = Wohnung.all_request();
+		})
+		.finally(function() {
+				// Stop the ion-refresher from spinning
+				$scope.$broadcast('scroll.refreshComplete');
+			});
+	};
+	$scope.update();
+
+	$scope.swipeDown = function(){
+		$scope.update();
+	};
+
 })
 
 
 
 //Controller für einzelene Wohnungen
 .controller('WohnungItemCtrlOffer', function($scope, $stateParams, Wohnung) {
-	$scope.Wohnungitem = Wohnung.get_entry_offer($stateParams.wohnungsId);
+	$scope.Wohnungitem = Wohnung.get($stateParams.wohnungsId);
 })
 
 
 
 //Controller für einzelnen Wohnung
 .controller('WohnungItemCtrlRequest', function($scope, $stateParams, Wohnung) {
-	$scope.Wohnungitem = Wohnung.get_entry_request($stateParams.wohnungsId);
+	$scope.Wohnungitem = Wohnung.get($stateParams.wohnungsId);
 })
 
 
@@ -248,13 +273,6 @@ angular.module('starter.controllers', [])
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
-
-	$scope.setMarker = function(campus){
-		Marker = new google.maps.Marker({
-							position: new google.maps.LatLng(47.77975,9.613589999999931),
-							map: $scope.map
-					});
-	};
 
   $scope.centerOnMe = function () {
     console.log("Centering");
