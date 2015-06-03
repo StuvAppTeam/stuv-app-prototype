@@ -16,7 +16,7 @@
     			on-refresh="swipeDown()">
 				</ion-refresher>
 				<div class="list">
-					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in allNews">
+					<a class="item item-thumbnail-left" href="#/app/news/{{news.id}}" ng-repeat="news in allNews | orderBy:'feedDate' : true">
 						<img src="img/stuv.jpg" ng-if="news.stuv">
 						<img src="img/dhbw.jpg" ng-if="!news.stuv">
 						<h2 ng-if="news.stuv">StuV</h2>
