@@ -164,7 +164,11 @@ angular.module('starter.controllers', [])
 	$scope.update_blackboard = function(){
 		$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
   		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
-  	});
+  	})
+		.finally(function() {
+				// Stop the ion-refresher from spinning
+				$scope.$broadcast('scroll.refreshComplete');
+			});
 	};
 
 	$scope.update = function(){
@@ -178,14 +182,29 @@ angular.module('starter.controllers', [])
 	};
 	$scope.update();
 	$scope.update_blackboard();
+
 })
 
 
 
-.controller('SbrettCategoryCtrl', function($scope, $stateParams, Sbrett) {
+.controller('SbrettCategoryCtrl', function($scope, $stateParams, $http,Sbrett) {
 	$scope.Offer = Sbrett.all_offers_in_category($stateParams.categoriesId);
 	$scope.Request = Sbrett.all_requests_in_category($stateParams.categoriesId);
 	$scope.categories = Sbrett.get($stateParams.categoriesId);
+	$scope.update_blackboard = function(){
+		$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
+  		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
+  	})
+		.finally(function() {
+				// Stop the ion-refresher from spinning
+				$scope.$broadcast('scroll.refreshComplete');
+			});
+	};
+
+	$scope.update_blackboard;
+	$scope.swipeDown = function(){
+		$scope.update_blackboard();
+	};
 })
 
 
@@ -220,6 +239,7 @@ angular.module('starter.controllers', [])
 			});
 	};
 	$scope.update();
+
 
 	$scope.swipeDown = function(){
 		$scope.update();
