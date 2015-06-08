@@ -59,28 +59,7 @@ angular.module('starter.controllers', [])
 
 
 
-// Controller für die Anzeige des Mensaplans
-.controller('MensaCtrl', function($scope, Mensa, $http, $ionicLoading) {
-	$scope.fullPlan = Mensa.all();
 
-	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/mensas.json').success(function(data,status){
-			$scope.fullPlan = Mensa.split(data);
-		})
-		.finally(function() {
-			// Stop the ion-refresher from spinning
-			$scope.$broadcast('scroll.refreshComplete');
-		});
-	};
-
-	$scope.update();
-
-	$scope.swipeDown = function(){
-		$scope.update();
-	};
-	
-
-})
 
 
 
@@ -93,11 +72,11 @@ angular.module('starter.controllers', [])
         var today = new Date(Date.parse(datum) - $scope.fullPlan[elem].timestamp);
         var daydiff = today.getDate() - 1;
         if (daydiff == 0){
-            timestamp = $scope.fullPlan[elem].timestamp;
+            $scope.timestamp = $scope.fullPlan[elem].timestamp;
         }
     }
-    
-    
+
+
     // Funktion zum anzeigen der Elemente beim klicken
 	$scope.toggleGroup = function(group) {
 		if ($scope.isGroupShown(group)) {
@@ -106,16 +85,36 @@ angular.module('starter.controllers', [])
 			$scope.shownGroup = group;
 		}
 	};
-	// Prüft ob aktuele Gruppe 
+	// Prüft ob aktuelle Gruppe
 	$scope.isGroupShown = function(group) {
 		return $scope.shownGroup === group;
-		
+
 	};
 	// Zeigt aktuellen Tag aufgeklappt an
-	$scope.toggleGroup(timestamp);
-	
-	
-	
+		$scope.toggleGroup($scope.timestamp);
+})
+
+
+// Controller für die Anzeige des Mensaplans
+.controller('MensaCtrl', function($scope, Mensa, $http, $ionicLoading) {
+	$scope.fullPlan = Mensa.all();
+
+	$scope.update = function(){
+		$http.get('http://stuvapp.herokuapp.com/mensas.json').success(function(data,status){
+			$scope.fullPlan = Mensa.split(data);
+		})
+		.finally(function() {
+			// Stop the ion-refresher from spinning
+			$scope.$broadcast('scroll.refreshComplete');
+		})
+	};
+
+	$scope.update();
+	$scope.swipeDown = function(){
+		$scope.update();
+	};
+
+
 })
 
 

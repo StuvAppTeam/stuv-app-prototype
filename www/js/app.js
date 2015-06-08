@@ -33,11 +33,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
       StatusBar.styleDefault();
     }
   });
-  
+
   $rootScope.$on('loading:show', function(){
       $ionicLoading.show({template: '<ion-spinner icon="spiral"></ion-spinner>'})
   })
-  
+
   $rootScope.$on('loading:hide', function(){
       $ionicLoading.hide()
   })
@@ -57,6 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
 
 //Festlegen der Route für den Mensa Speiseplan
     .state('app.mensa', {
+      cache: false,
       url: "/mensa",
       views: {
         'menuContent' :{
