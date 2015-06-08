@@ -5,7 +5,7 @@
 	</ion-nav-buttons>
 
 	<ion-tabs class="tabs-striped tabs-background-dark tabs-color-light">
-    <ion-tab title="Suche">
+    <ion-tab title="Angebote">
 		<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
 
@@ -18,7 +18,7 @@
 		</div>
 
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment  | filter:query" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment  | filter:query" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
@@ -27,7 +27,7 @@
 	</ion-content>
 	 </ion-tab>
 
-	    <ion-tab title="Biete">
+	    <ion-tab title="Gesuche">
 	    		<!-- Bug beim Rendern behoben durch Einfügen der nav-buttons in tabs -->
 			<ion-nav-buttons side="left"></ion-nav-buttons>
     <ion-content class="has-footer has-header">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment | filter:query" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment | filter:query" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>

@@ -4,35 +4,158 @@
 
         <div class="list card">
 
-        <div class="item item-avatar">
-            <h2>{{Wohnungitem.title}}</h2>
-            <p>Preis: {{Wohnungitem.totalprice}}</p>
-           <p>Type: {{Wohnungitem.type}}</p>
-           <p>Stadt: {{Wohnungitem.city}}</p>
-           <p>Größe: {{Wohnungitem.size}}</p>
-            </p>
+        <div class="item">
+
+          <h3 style="white-space:normal !important">{{Wohnungitem.title}}</h3>
+          <div class="row">
+            <div class="col-33">
+            <p>Miete:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.rent}}€</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Nebenkosten:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.additionalCost}}€</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Kaution:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.deposit}}€</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Wohnungstyp:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.apartment_type}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Phase:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.phase}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Straße:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.street}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Stadt:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.city}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>PLZ:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.zipcode}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Größe:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.size}}m²</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Anzahl Zimmer:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.rooms}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Bezugsdatum:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.movein | date:'EEE, d.MM.yy'}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Möbliert:</p>
+            </div>
+            <div class="col-67">
+              <p align="right" ng-if="Wohnungitem.furnished">Ja</p>
+              <p align="right" ng-if="!Wohnungitem.furnished">Nein</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+              <p>Internet:</p>
+            </div>
+            <div class="col-67">
+              <p align="right" ng-if="Wohnungitem.internet">Ja</p>
+              <p align="right" ng-if="!Wohnungitem.internet">Nein</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+              <p>Rauchen:</p>
+            </div>
+            <div class="col-67">
+              <p align="right" ng-if="Wohnungitem.smoking">Ja</p>
+              <p align="right" ng-if="!Wohnungitem.smoking">Nein</p>
+            </div>
+          </div>
         </div>
 
         <div class="item item-body">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="Wohnungitem.image">
+            <ion-slide>
+              <div class="box blue"><p>{{image.title}}</p></div>
+            </ion-slide>
+
+          </ion-slide-box>
+            <h3>Beschreibung:</h3>
             <p>
-                <img class="full-image" src="{{Wohnungitem.imgsrc}}">
                 {{Wohnungitem.description}}
             </p>
+
+            <h3>Parkmöglichkeiten:</h3>
+            <p>
+              {{Wohnungitem.parking}}
+            </p>
+            <h3>Kontakt:<h3>
         </div>
-          <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#">
-      <i class="icon ion-thumbsup"></i>
-      Like
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-chatbox"></i>
-      Comment
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-      Share
-    </a>
-  </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#">
+            <i class="icon ion-thumbsup"></i>
+            Like
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-chatbox"></i>
+            Comment
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            Share
+          </a>
         </div>
+      </div>
     </ion-content>
 </ion-view>

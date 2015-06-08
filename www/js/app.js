@@ -221,6 +221,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
     			controller: 'WohnungItemCtrlRequest'
     		}
     	}
+    })
+
+    .state('app.impressum', {
+    	url: "/impressum",
+    	views: {
+    		'menuContent' :{
+    			templateUrl: "templates/impressum.html"
+    		}
+    	}
     });
 
 

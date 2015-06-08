@@ -4,22 +4,87 @@
 
 		<div class="list card">
 
-		<div class="item item-avatar">
-			<h2>{{item.title}}</h2>
-			<p>
-			{{item.totalprice}}
-			{{item.street}}
-			{{item.city}}
-			{{item.zipcode}}
-			</p>
+		<div class="item ">
+			<h3 style="white-space:normal !important">{{item.title}}</h3>
+			<div class="row">
+				<div class="col-33">
+				<p>Preis:</p>
+				</div>
+				<div class="col-67">
+					<p align="right">{{item.totalPrice}}€</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-33">
+				<p>Kategorie:</p>
+				</div>
+				<div class="col-67">
+					<p align="right">{{item.category}}</p>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Zustand:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.condition}}€</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Straße:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.street}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Stadt:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.city}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>PLZ:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.zipcode}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="item item-body">
+			<ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="item.image_id">
+				<ion-slide>
+					<div class="box blue"><p>{{image.title}}</p></div>
+				</ion-slide>
+
+			</ion-slide-box>
+			<h3>Beschreibung:</h3>
 			<p>
 				{{item.description}}
 			</p>
+			<h3>Kontakt:<h3>
 		</div>
-		
+		<div class="item tabs tabs-secondary tabs-icon-left">
+			<a class="tab-item" href="#">
+				<i class="icon ion-thumbsup"></i>
+				Like
+			</a>
+			<a class="tab-item" href="#">
+				<i class="icon ion-chatbox"></i>
+				Comment
+			</a>
+			<a class="tab-item" href="#">
+				<i class="icon ion-share"></i>
+				Share
+			</a>
+		</div>
+		</div>
+
 		</div>
 	</ion-content>
 </ion-view>

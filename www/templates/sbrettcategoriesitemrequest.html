@@ -1,25 +1,61 @@
 <!-- Anzeige eines einzelnen Gesuchs des schwarzen Bretts -->
 <ion-view view-title="{{item.title}}">
-	<ion-content class="has-header">
+	<ion-view view-title="{{item.title}}">
+		<ion-content class="has-header">
 
-		<div class="list card">
+			<div class="list card">
 
-		<div class="item item-avatar">
-			<h2>{{item.title}}</h2>
-			<p>
-			{{item.totalprice}}
-			{{item.street}}
-			{{item.city}}
-			{{item.zipcode}}
-			</p>
-		</div>
+			<div class="item ">
+				<h3 style="white-space:normal !important">{{item.title}}</h3>
+				<div class="row">
+					<div class="col-33">
+					<p>Preis:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.totalPrice}}€</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Kategorie:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.category}}</p>
+					</div>
+					<div class="row">
+						<div class="col-33">
+						<p>Zustand:</p>
+						</div>
+						<div class="col-67">
+							<p align="right">{{item.condition}}€</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div class="item item-body">
-			<p>
-				{{item.description}}
-			</p>
-		</div>
-		
-		</div>
-	</ion-content>
+			<div class="item item-body">
+				<h3>Beschreibung:</h3>
+				<p>
+					{{item.description}}
+				</p>
+				<h3>Kontakt:<h3>
+			</div>
+			<div class="item tabs tabs-secondary tabs-icon-left">
+				<a class="tab-item" href="#">
+					<i class="icon ion-thumbsup"></i>
+					Like
+				</a>
+				<a class="tab-item" href="#">
+					<i class="icon ion-chatbox"></i>
+					Comment
+				</a>
+				<a class="tab-item" href="#">
+					<i class="icon ion-share"></i>
+					Share
+				</a>
+			</div>
+			</div>
+
+			</div>
+		</ion-content>
 </ion-view>
