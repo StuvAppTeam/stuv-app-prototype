@@ -78,12 +78,27 @@ angular.module('starter.controllers', [])
 	$scope.swipeDown = function(){
 		$scope.update();
 	};
+	
+
 })
 
 
 
 // Controller für das Erstellen von Aufklappmenüs
 .controller('GroupCtrl', function($scope) {
+    // Berechnung des aktuellen Tages fuer Mensaplan
+    var datum = new Date();
+    for (elem in $scope.fullPlan) {
+
+        var today = new Date(Date.parse(datum) - $scope.fullPlan[elem].timestamp);
+        var daydiff = today.getDate() - 1;
+        if (daydiff == 0){
+            timestamp = $scope.fullPlan[elem].timestamp;
+        }
+    }
+    
+    
+    // Funktion zum anzeigen der Elemente beim klicken
 	$scope.toggleGroup = function(group) {
 		if ($scope.isGroupShown(group)) {
 			$scope.shownGroup = null;
@@ -91,9 +106,16 @@ angular.module('starter.controllers', [])
 			$scope.shownGroup = group;
 		}
 	};
+	// Prüft ob aktuele Gruppe 
 	$scope.isGroupShown = function(group) {
 		return $scope.shownGroup === group;
+		
 	};
+	// Zeigt aktuellen Tag aufgeklappt an
+	$scope.toggleGroup(timestamp);
+	
+	
+	
 })
 
 

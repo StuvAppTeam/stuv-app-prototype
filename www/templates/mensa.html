@@ -13,7 +13,8 @@
 		<div class="list" ng-controller="GroupCtrl">
 			<div ng-repeat = "(key, value) in fullPlan |orderBy: 'timestamp' | groupBy: 'timestamp'">
 
-				<div class="item" ng-click="toggleGroup(key)" ng-class="{active: isGroupShown(key)}">
+				<div class="item" ng-click="toggleGroup(key)" ng-class="{active: isGroupShown(key)}" >
+				    
 					<div>{{key | date:'EEE, d.MM.yy'}}</div>
 				</div>
 
