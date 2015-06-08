@@ -13,15 +13,12 @@
 
 		<div class="bar bar-header item-input-inset">
 			<label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
-				<input type="search" placeholder="Suche">
+				<input type="search" placeholder="Suche" ng-model="query">
 			</label>
-			<button class="button button-small">
-				Suchen
-			</button>
 		</div>
 
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment  | filter:query" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
@@ -36,15 +33,12 @@
     <ion-content class="has-footer has-header">
         <div class="bar bar-header item-input-inset">
             <label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
-                <input type="search" placeholder="Suche">
+                <input type="search" placeholder="Suche" ng-model="query">
             </label>
-            <button class="button button-small">
-                Suchen
-            </button>
         </div>
 
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
+                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment | filter:query" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
                     <img src="img/Apartment/{{Wohnung.imgsrc}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>

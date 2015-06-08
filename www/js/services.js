@@ -155,6 +155,7 @@ angular.module('starter.services', [])
   	all_offers_in_category: function(categoriesId){
       get_offers = function(){
         blackboard = JSON.parse(window.localStorage.blackboard || '{}');
+        console.log(blackboard)
         offers = [];
         for (var entry in blackboard){
         if(blackboard[entry].request === false)
