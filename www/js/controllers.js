@@ -310,10 +310,25 @@ angular.module('starter.controllers', [])
 
 
 // Controller für die GoogleMaps API
-.controller('MapCtrl', function($scope, $ionicLoading) {
+.controller('MapCtrl', function($scope, $ionicLoading, Campus, $stateParams) {
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
+
+	$scope.openMap = function() {
+		var campus = Campus.get($stateParams.campusId);
+  	var address, lat, long, text;
+  	address = campus.street + " " + campus.zipcode + " " + campus.city;
+  	lat = parseFloat(campus.latitude);
+  	long = parseFloat(campus.longitude);
+  	text = encodeURIComponent("Marienplatz 2 88212 Ravensburg");
+
+  	if (ionic.Platform.isIOS()) {
+    	return window.open("http://maps.apple.com/?q=" + text + "&ll=" + lat + "," + long + "&near=" + lat + "," + long, '_system', 'location=yes');
+  	} else {
+    	return window.open("geo:" + lat + "," + long + "?q=" + text, '_system', 'location=yes');
+  	}
+};
 
   $scope.centerOnMe = function () {
     console.log("Centering");
