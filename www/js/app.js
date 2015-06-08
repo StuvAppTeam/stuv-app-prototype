@@ -6,7 +6,22 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','angular.filter','starter.directives'])
 
-.run(function($ionicPlatform) {
+.config(function($httpProvider){
+    $httpProvider.interceptors.push(function($rootScope){
+        return {
+            request: function(config){
+                $rootScope.$broadcast('loading:show')
+                return config
+            },
+            response: function(response){
+                $rootScope.$broadcast('loading:hide')
+                return response
+            }
+        }
+    })
+})
+
+.run(function($ionicPlatform, $rootScope, $ionicLoading) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,6 +33,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
       StatusBar.styleDefault();
     }
   });
+  
+  $rootScope.$on('loading:show', function(){
+      $ionicLoading.show({template: '<ion-spinner icon="spiral"></ion-spinner>'})
+  })
+  
+  $rootScope.$on('loading:hide', function(){
+      $ionicLoading.hide()
+  })
 })
 
 //Konfiguration des App Routings. Für genauere Dokumentation der Funktionsweise: ui-router oder ionic-router

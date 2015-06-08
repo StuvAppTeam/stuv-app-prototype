@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
 
 
 // Controller für die Anzeige des Mensaplans
-.controller('MensaCtrl', function($scope, Mensa, $http) {
+.controller('MensaCtrl', function($scope, Mensa, $http, $ionicLoading) {
 	$scope.fullPlan = Mensa.all();
 
 	$scope.update = function(){
@@ -68,9 +68,9 @@ angular.module('starter.controllers', [])
 			$scope.fullPlan = Mensa.split(data);
 		})
 		.finally(function() {
-				// Stop the ion-refresher from spinning
-				$scope.$broadcast('scroll.refreshComplete');
-			});
+			// Stop the ion-refresher from spinning
+			$scope.$broadcast('scroll.refreshComplete');
+		});
 	};
 
 	$scope.update();
