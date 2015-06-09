@@ -121,12 +121,18 @@ angular.module('starter.controllers', [])
 
 //Controller für die Anzeige der Freizeitangebote
 .controller('FangebotCtrl', function($scope, Fangebot, $http) {
-	$scope.sportFangebot = Fangebot.all_sport();
-	$scope.unterhaltungFangebot = Fangebot.all_unterhaltung();
-	$scope.Fangebot = Fangebot.all();
-
+	var sportFangebot = [];
+	var unterhaltungFangebot = [];
 	$scope.update = function(){
 		$http.get('http://stuvapp.herokuapp.com/activities.json').success(function(data,status){
+			for (var i = 0; i < data.length; i++){
+				if(data[i].activity_type === "Sport")
+					sportFangebot.push(data[i]);
+				if(data[i].activity_type === "Unterhaltung")
+					unterhaltungFangebot.push(data[i]);
+			}
+			$scope.sportFangebot = Fangebot.split_sport(sportFangebot);
+			$scope.unterhaltungFangebot = Fangebot.split_unterhaltung(unterhaltungFangebot);
 			$scope.Fangebot = Fangebot.split(data);
 		})
 		.finally(function() {
@@ -310,24 +316,39 @@ angular.module('starter.controllers', [])
 
 
 // Controller für die GoogleMaps API
-.controller('MapCtrl', function($scope, $ionicLoading, Campus, $stateParams) {
+.controller('MapCtrl', function($scope, $ionicLoading, Campus, Fangebot, $stateParams) {
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
 
-	$scope.openMap = function() {
+	$scope.openMapCampus = function() {
 		var campus = Campus.get($stateParams.campusId);
   	var address, lat, long, text;
   	address = campus.street + " " + campus.zipcode + " " + campus.city;
   	lat = parseFloat(campus.latitude);
   	long = parseFloat(campus.longitude);
-  	text = encodeURIComponent("Marienplatz 2 88212 Ravensburg");
+  	text = encodeURIComponent(address);
 
   	if (ionic.Platform.isIOS()) {
     	return window.open("http://maps.apple.com/?q=" + text + "&ll=" + lat + "," + long + "&near=" + lat + "," + long, '_system', 'location=yes');
   	} else {
     	return window.open("geo:" + lat + "," + long + "?q=" + text, '_system', 'location=yes');
   	}
+};
+
+$scope.openMapFangebot = function() {
+	var fangebot = Fangebot.get($stateParams.fangebotId);
+	var address, lat, long, text;
+	address = fangebot.street + " " + fangebot.zipcode + " " + fangebot.city;
+	lat = parseFloat(fangebot.latitude);
+	long = parseFloat(fangebot.longitude);
+	text = encodeURIComponent(address);
+
+	if (ionic.Platform.isIOS()) {
+		return window.open("http://maps.apple.com/?q=" + text + "&ll=" + lat + "," + long + "&near=" + lat + "," + long, '_system', 'location=yes');
+	} else {
+		return window.open("geo:" + lat + "," + long + "?q=" + text, '_system', 'location=yes');
+	}
 };
 
   $scope.centerOnMe = function () {

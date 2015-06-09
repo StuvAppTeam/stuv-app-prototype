@@ -17,11 +17,9 @@
 					on-refresh="swipeDown()">
 				</ion-refresher>
 				<div class="list">
-					<div ng-repeat = "activity in sportFangebot">
-						<a class="item item-divider" style="background-color: grey" href="#/app/fangebot/{{activity.id}}">
-							{{activity.title}}
-						</a>
-					</div>
+					<a class="item" href="#/app/fangebot/{{activity.id}}" ng-repeat="activity in sportFangebot">
+						<h3>{{activity.title}}</h3>
+					</a>
 				</div>
 
 			</ion-content>
@@ -36,12 +34,10 @@
 					spinner="spiral"
 					on-refresh="swipeDown()">
 				</ion-refresher>
-				<div class="list" >
-					<div ng-repeat = "activity in unterhaltungFangebot">
-						<a class="item item-divider" style="background-color: grey" href="#/app/fangebot/{{activity.id}}">
-							{{activity.title}}
-						<a>
-					</div>
+				<div class="list">
+					<a class="item" href="#/app/fangebot/{{activity.id}}" ng-repeat="activity in unterhaltungFangebot">
+						<h3>{{activity.title}}</h3>
+					</a>
 				</div>
 
 			</ion-content>

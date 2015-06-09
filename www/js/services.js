@@ -76,7 +76,7 @@ angular.module('starter.services', [])
       return JSON.parse(window.localStorage.fangebot || '{}');
     },
     get: function(fangebotId){
-      speiseplan = JSON.parse(window.localStorage.fangebot || '{}');
+      fangebot = JSON.parse(window.localStorage.fangebot || '{}');
         for (var entry in fangebot){
         if(fangebot[entry].id == fangebotId)
             return (fangebot[entry]);
@@ -86,23 +86,13 @@ angular.module('starter.services', [])
       window.localStorage.fangebot = JSON.stringify(data);
       return data;
     },
-    all_sport: function() {
-      var sportfangebot = [ ];
-      var fangebot = window.localStorage.fangebot;
-      for(var activity in fangebot){
-        if(fangebot[activity].type == 'Sport')
-         sportfangebot.push(fangebot[activity]);
-      }
-      return sportfangebot;
+    split_sport: function(data) {
+      window.localStorage.sportFangebot = JSON.stringify(data);
+			return data;
     },
-    all_unterhaltung: function() {
-      var unterhaltungfangebot = [ ];
-      var fangebot = window.localStorage.fangebot;
-      for(var activity in fangebot){
-        if(fangebot[activity].type == 'Unterhaltung')
-         unterhaltungfangebot.push(fangebot[activity]);
-      }
-      return unterhaltungfangebot;
+    split_unterhaltung: function(data) {
+      window.localStorage.unterhaltungFangebot = JSON.stringify(data);
+			return data;
     }
   };
 })
@@ -155,7 +145,6 @@ angular.module('starter.services', [])
   	all_offers_in_category: function(categoriesId){
       get_offers = function(){
         blackboard = JSON.parse(window.localStorage.blackboard || '{}');
-        console.log(blackboard)
         offers = [];
         for (var entry in blackboard){
         if(blackboard[entry].request === false)

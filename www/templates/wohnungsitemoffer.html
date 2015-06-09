@@ -1,8 +1,8 @@
 <!-- Angebot eines Wohnungsmarkt Gesuchs -->
 <ion-view view-title="{{Wohnungitem.title}}">
     <ion-content class="has-header">
-
-        <div class="list card">
+      <ion-list>
+        <div class="card">
 
         <div class="item">
 
@@ -131,7 +131,7 @@
     						<p align="right">{{Wohnungitem.user}}</p>
     					</div>
     				</div>
-    				<div class="row">
+    				<div class="row" ng-if="Wohnungitem.phone">
     					<div class="col-33">
     					<p>Telefon:</p>
     					</div>
@@ -158,20 +158,15 @@
               {{Wohnungitem.parking}}
             </p>
         </div>
-        <div class="item tabs tabs-secondary tabs-icon-left">
-          <a class="tab-item" href="#">
-            <i class="icon ion-thumbsup"></i>
-            Like
+        <div class="item tabs  tabs-icon-only">
+          <a class="tab-item" href="tel: {{Wohnungitem.phone}}" ng-if="Wohnungitem.phone">
+            <i class="icon ion-ios-telephone"></i>
           </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-chatbox"></i>
-            Comment
-          </a>
-          <a class="tab-item" href="#">
-            <i class="icon ion-share"></i>
-            Share
+          <a class="tab-item" href="mailto:{{Wohnungitem.user}}?Subject={{Wohnungitem.title}}">
+            <i class="icon ion-ios-email"></i>
           </a>
         </div>
       </div>
+      </ion-list>
     </ion-content>
 </ion-view>

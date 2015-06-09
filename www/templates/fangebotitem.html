@@ -1,15 +1,104 @@
 <!-- Anzeige der einzelnen Freizeitangebote -->
-<ion-view view-title="{{fangebot.title}}">
+<ion-view view-title="{{fangebot.title}}" ng-Controller="MapCtrl">
 	<ion-content class="has-header">
+		<ion-list>
+			<div class="card">
+				<div class=item>
+					<h3>{{fangebot.title}}</h3>
+				</div
+			</div>
 
-		<div class="list card">
-			<h2>{{fangebot.title}}</h2>
-		</div>
+			<div class="item item">
+				<h3>Wo?</h3>
+				<div class="row">
+					<div class="col-33">
+						<p>Treffpunkt:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.locationName}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Straße:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.street}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Stadt:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.city}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>PLZ:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.zipcode}}</p>
+					</div>
+				</div>
+				<h3>Wann?</h3>
+				<div class="row">
+					<div class="col-33">
+					<p>Wochentag:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.weekday}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Uhrzeit:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.description}}</p>
+					</div>
+				</div>
+				<h3>Kontakt:</h3>
+				<div class="row">
+					<div class="col-33">
+					<p>Name:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.contactName}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Email:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.email}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Telefon:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{fangebot.telephone}}</p>
+					</div>
+				</div>
+				<div class="box"  >
+					<map on-create="mapCreated(map)"  ng-init="setMarker(standorte)" ></map>
+				</div>
+				<a ng-click="openMapFangebot()" class="button button-icon icon ion-navigate" style="width:100%;border-color:#ddd">Navigieren</a>
+			</div>
 
-		<div class="item item-body">
-			<p>
-				{{fangebot.description}}
-			</p>
+			<div class="item tabs  tabs-icon-only">
+				<a class="tab-item" href="tel: {{fangebot.telephone}}">
+					<i class="icon ion-ios-telephone"></i>
+				</a>
+				<a class="tab-item" href="mailto:{{fangebot.email}}?Subject={{fangebot.title}}">
+					<i class="icon ion-ios-email"></i>
+				</a>
+			</div>
 		</div>
+	</ion-list>
 	</ion-content>
 </ion-view>

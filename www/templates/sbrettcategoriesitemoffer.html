@@ -1,108 +1,94 @@
 <!-- Anzeige eines einzelnen Angebots des schwarzen Bretts -->
 <ion-view view-title="{{item.title}}">
 	<ion-content class="has-header">
+		<ion-list>
+			<div class="card">
 
-		<div class="list card">
-
-		<div class="item ">
-			<h3 style="white-space:normal !important">{{item.title}}</h3>
-			<div class="row">
-				<div class="col-33">
-				<p>Preis:</p>
-				</div>
-				<div class="col-67">
-					<p align="right">{{item.totalPrice}}€</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-33">
-				<p>Kategorie:</p>
-				</div>
-				<div class="col-67">
-					<p align="right">{{item.category}}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-33">
-				<p>Zustand:</p>
-				</div>
-				<div class="col-67">
-					<p align="right">{{item.condition}}€</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-33">
-				<p>Straße:</p>
-				</div>
-				<div class="col-67">
-					<p align="right">{{item.street}}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-33">
-				<p>Stadt:</p>
-				</div>
-				<div class="col-67">
-					<p align="right">{{item.city}}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-33">
-				<p>PLZ:</p>
-				</div>
-				<div class="col-67">
-					<p align="right">{{item.zipcode}}</p>
-				</div>
-			</div>
-			<h3>Kontakt:</h3>
+			<div class="item ">
+				<h3 style="white-space:normal !important">{{item.title}}</h3>
 				<div class="row">
 					<div class="col-33">
-					<p>Email:</p>
+					<p>Preis:</p>
 					</div>
 					<div class="col-67">
-						<p align="right">{{item.user}}</p>
+						<p align="right">{{item.totalPrice}}€</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-33">
-					<p>Telefon:</p>
+					<p>Zustand:</p>
 					</div>
 					<div class="col-67">
-						<p align="right">{{item.phone}}</p>
+						<p align="right" ng-if="item.condition">Neu</p>
+						<p align="right" ng-if="!item.condition">Gebraucht</p>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Straße:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.street}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>Stadt:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.city}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-33">
+					<p>PLZ:</p>
+					</div>
+					<div class="col-67">
+						<p align="right">{{item.zipcode}}</p>
+					</div>
+				</div>
+				<h3>Kontakt:</h3>
+					<div class="row">
+						<div class="col-33">
+						<p>Email:</p>
+						</div>
+						<div class="col-67">
+							<p align="right">{{item.user}}</p>
+						</div>
+					</div>
+					<div class="row" ng-if="item.phone">
+						<div class="col-33">
+						<p>Telefon:</p>
+						</div>
+						<div class="col-67">
+							<p align="right">{{item.phone}}</p>
+						</div>
+					</div>
+				</div>
+
+
+			<div class="item item-body">
+				<ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="item.image_id">
+					<ion-slide>
+						<div class="box blue"><p>{{image.title}}</p></div>
+					</ion-slide>
+
+				</ion-slide-box>
+				<h3>Beschreibung:</h3>
+				<p>
+					{{item.description}}
+				</p>
+
 			</div>
-		</div>
-
-		<div class="item item-body">
-			<ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="item.image_id">
-				<ion-slide>
-					<div class="box blue"><p>{{image.title}}</p></div>
-				</ion-slide>
-
-			</ion-slide-box>
-			<h3>Beschreibung:</h3>
-			<p>
-				{{item.description}}
-			</p>
-
-		</div>
-		<div class="item tabs tabs-secondary tabs-icon-left">
-			<a class="tab-item" href="#">
-				<i class="icon ion-thumbsup"></i>
-				Like
-			</a>
-			<a class="tab-item" href="#">
-				<i class="icon ion-chatbox"></i>
-				Comment
-			</a>
-			<a class="tab-item" href="#">
-				<i class="icon ion-share"></i>
-				Share
-			</a>
-		</div>
-		</div>
-
-		</div>
+			<div class="item tabs  tabs-icon-only">
+				<a class="tab-item" href="tel: {{item.phone}}" ng-if="item.phone">
+					<i class="icon ion-ios-telephone"></i>
+				</a>
+				<a class="tab-item" href="mailto:{{item.user}}?Subject={{item.title}}">
+					<i class="icon ion-ios-email"></i>
+				</a>
+			</div>
+			</div>
+		</ion-list>
 	</ion-content>
 </ion-view>
