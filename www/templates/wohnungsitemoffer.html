@@ -1,4 +1,4 @@
-<!-- Anzeige eines Wohnungsmarkt Angebots -->
+<!-- Angebot eines Wohnungsmarkt Gesuchs -->
 <ion-view view-title="{{Wohnungitem.title}}">
     <ion-content class="has-header">
 
@@ -25,6 +25,14 @@
           </div>
           <div class="row">
             <div class="col-33">
+            <p>Kaution:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.deposit}}€</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
             <p>Wohnungstyp:</p>
             </div>
             <div class="col-67">
@@ -37,6 +45,30 @@
             </div>
             <div class="col-67">
               <p align="right">{{Wohnungitem.phase}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Straße:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.street}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>Stadt:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.city}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-33">
+            <p>PLZ:</p>
+            </div>
+            <div class="col-67">
+              <p align="right">{{Wohnungitem.zipcode}}</p>
             </div>
           </div>
           <div class="row">
@@ -90,14 +122,41 @@
               <p align="right" ng-if="!Wohnungitem.smoking">Nein</p>
             </div>
           </div>
+          <h3>Kontakt:</h3>
+    				<div class="row">
+    					<div class="col-33">
+    					<p>Email:</p>
+    					</div>
+    					<div class="col-67">
+    						<p align="right">{{Wohnungitem.user}}</p>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="col-33">
+    					<p>Telefon:</p>
+    					</div>
+    					<div class="col-67">
+    						<p align="right">{{Wohnungitem.phone}}</p>
+    					</div>
+    				</div>
         </div>
 
         <div class="item item-body">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="Wohnungitem.image">
+            <ion-slide>
+              <div class="box blue"><p>{{image.title}}</p></div>
+            </ion-slide>
+
+          </ion-slide-box>
             <h3>Beschreibung:</h3>
             <p>
                 {{Wohnungitem.description}}
             </p>
-            <h3>Kontakt:<h3>
+
+            <h3>Parkmöglichkeiten:</h3>
+            <p>
+              {{Wohnungitem.parking}}
+            </p>
         </div>
         <div class="item tabs tabs-secondary tabs-icon-left">
           <a class="tab-item" href="#">
