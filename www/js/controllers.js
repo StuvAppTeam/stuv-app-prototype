@@ -121,18 +121,19 @@ angular.module('starter.controllers', [])
 
 //Controller für die Anzeige der Freizeitangebote
 .controller('FangebotCtrl', function($scope, Fangebot, $http) {
-	var sportFangebot = [];
-	var unterhaltungFangebot = [];
+
 	$scope.update = function(){
+		var sport = [];
+		var unterhaltung = [];
 		$http.get('http://46.101.160.142/activities.json').success(function(data,status){
 			for (var i = 0; i < data.length; i++){
 				if(data[i].activity_type === "Sport")
-					sportFangebot.push(data[i]);
+					sport.push(data[i]);
 				if(data[i].activity_type === "Unterhaltung")
-					unterhaltungFangebot.push(data[i]);
+					unterhaltung.push(data[i]);
 			}
-			$scope.sportFangebot = Fangebot.split_sport(sportFangebot);
-			$scope.unterhaltungFangebot = Fangebot.split_unterhaltung(unterhaltungFangebot);
+			$scope.sportFangebot = Fangebot.split_sport(sport);
+			$scope.unterhaltungFangebot = Fangebot.split_unterhaltung(unterhaltung);
 			$scope.Fangebot = Fangebot.split(data);
 		})
 		.finally(function() {
