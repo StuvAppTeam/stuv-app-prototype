@@ -26,6 +26,7 @@
 
 				<div class="list" >
 						<a class="item item-thumbnail-left" ng-repeat = "entry in Offer | filter:query" href="#/app/{{entry.categoryid}}/offer/{{entry.id}}">
+							<img src="http://46.101.160.142{{entry.images[0].photo.photo.thumb.url}}">
 							<h2>{{entry.title}}</h2>
 						</a>
 				</div>

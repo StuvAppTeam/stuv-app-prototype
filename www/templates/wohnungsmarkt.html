@@ -19,7 +19,7 @@
 
         <div class="list" >
                 <a class="item item-thumbnail-left" ng-repeat = "Wohnung in OfferApartment  | filter:query" href="#/app/wohnungsmarkt/offerApa/{{Wohnung.id}}">
-                    <img src="img/Apartment/{{Wohnung.imgsrc}}">
+										<img src="http://46.101.160.142{{Wohnung.images[0].photo.photo.thumb.url}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
         </div>
@@ -38,8 +38,7 @@
         </div>
 
         <div class="list" >
-                <a class="item item-thumbnail-left" ng-repeat = "Wohnung in RequestApartment | filter:query" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
-                    <img src="img/Apartment/{{Wohnung.imgsrc}}">
+                <a class="item" ng-repeat = "Wohnung in RequestApartment | filter:query" href="#/app/wohnungsmarkt/requestApa/{{Wohnung.id}}">
                     <h2>{{Wohnung.title}}</h2>
                 </a>
         </div>

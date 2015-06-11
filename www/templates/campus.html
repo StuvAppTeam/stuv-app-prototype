@@ -10,10 +10,11 @@
 	<ion-content>
 				<!-- Anzeige aller Universitätsstandorte -->
 				<div class="list">
-					<a class="item" href="#/app/campus/{{standort.id}}" ng-repeat="standort in standorte"> 
+					<a class="item item-thumbnail-left" href="#/app/campus/{{standort.id}}" ng-repeat="standort in standorte">
+						<img src="http://46.101.160.142{{standort.image.photo.url}}">
 						<h3>{{standort.name}}</h3>
 					</a>
 				</div>
-		
+
 	</ion-content>
 </ion-view>

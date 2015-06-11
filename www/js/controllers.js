@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
 	$scope.update = function(){
 		var stuvnews = [];
 		var dhbwnews = [];
-		$http.get('http://stuvapp.herokuapp.com/dhbw_news.json')
+		$http.get('http://46.101.160.142/dhbw_news.json')
 		.success(function(data,status){
   		for (var i = 0; i < data.length; i++){
 				if(data[i].stuv === true)
@@ -100,7 +100,7 @@ angular.module('starter.controllers', [])
 	$scope.fullPlan = Mensa.all();
 
 	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/mensas.json').success(function(data,status){
+		$http.get('http://46.101.160.142/mensas.json').success(function(data,status){
 			$scope.fullPlan = Mensa.split(data);
 		})
 		.finally(function() {
@@ -124,7 +124,7 @@ angular.module('starter.controllers', [])
 	var sportFangebot = [];
 	var unterhaltungFangebot = [];
 	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/activities.json').success(function(data,status){
+		$http.get('http://46.101.160.142/activities.json').success(function(data,status){
 			for (var i = 0; i < data.length; i++){
 				if(data[i].activity_type === "Sport")
 					sportFangebot.push(data[i]);
@@ -164,7 +164,7 @@ angular.module('starter.controllers', [])
 	$scope.standorte = Campus.all();
 
 	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/campus.json').success(function(data,status){
+		$http.get('http://46.101.160.142/campus.json').success(function(data,status){
 			$scope.standorte = Campus.split(data);
 		})
 		.finally(function() {
@@ -189,7 +189,7 @@ angular.module('starter.controllers', [])
 	$scope.Categories = Sbrett.all_categories();
 
 	$scope.update_blackboard = function(){
-		$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
+		$http.get('http://46.101.160.142/offer_blackboards.json').success(function(data,status){
   		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
   	})
 		.finally(function() {
@@ -199,7 +199,7 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/categories.json').success(function(data,status){
+		$http.get('http://46.101.160.142/categories.json').success(function(data,status){
 			$scope.Categories = Sbrett.split_categories(data);
 		})
 		.finally(function() {
@@ -209,6 +209,10 @@ angular.module('starter.controllers', [])
 	};
 	$scope.update();
 	$scope.update_blackboard();
+	$scope.swipeDown = function(){
+		$scope.update();
+		$scope.update_blackboard();
+	}
 
 })
 
@@ -219,7 +223,7 @@ angular.module('starter.controllers', [])
 	$scope.Request = Sbrett.all_requests_in_category($stateParams.categoriesId);
 	$scope.categories = Sbrett.get($stateParams.categoriesId);
 	$scope.update_blackboard = function(){
-		$http.get('https://stuvapp.herokuapp.com/offer_blackboards.json').success(function(data,status){
+		$http.get('http://46.101.160.142/offer_blackboards.json').success(function(data,status){
   		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
   	})
 		.finally(function() {
@@ -227,7 +231,6 @@ angular.module('starter.controllers', [])
 				$scope.$broadcast('scroll.refreshComplete');
 			});
 	};
-
 	$scope.update_blackboard;
 	$scope.swipeDown = function(){
 		$scope.update_blackboard();
@@ -255,7 +258,7 @@ angular.module('starter.controllers', [])
 	$scope.Apartment = Wohnung.all();
 
 	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/apartments.json').success(function(data,status){
+		$http.get('http://46.101.160.142/apartments.json').success(function(data,status){
 			$scope.Apartment = Wohnung.split(data);
 			$scope.OfferApartment = Wohnung.all_offer();
 			$scope.RequestApartment = Wohnung.all_request();
@@ -296,22 +299,6 @@ angular.module('starter.controllers', [])
 })
 
 
-
-// Controller für den Abruf der Bilder vom Backend
-.controller('ImageCtrl', function($scope, Image, $http, $stateParams){
-	$scope.Images = Image.all();
-	$scope.CategoryImage = Image.get_category_image($stateParams.categoryId);
-	$scope.update = function(){
-		$http.get('http://stuvapp.herokuapp.com/images.json').success(function(data,status){
-			$scope.Images = Image.split(data);
-		})
-		.finally(function() {
-				// Stop the ion-refresher from spinning
-				$scope.$broadcast('scroll.refreshComplete');
-			});
-	};
-	$scope.update();
-})
 
 
 

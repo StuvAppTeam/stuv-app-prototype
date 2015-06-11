@@ -5,6 +5,11 @@
 	</ion-nav-buttons>
 
 	<ion-content >
+		<ion-refresher
+			pulling-text="Loslassen zum aktualisieren"
+			spinner="spiral"
+			on-refresh="swipeDown()">
+		</ion-refresher>
 		<div class="bar bar-header item-input-inset">
 			<label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
 				<input type="search" placeholder="Suche" ng-model="query">
@@ -12,16 +17,19 @@
 		</div>
 
 
-				<div class="list" ng-Controller="ImageCtrl" ng-if="!query">
+				<div class="list" ng-if="!query">
 						<a class="item item-thumbnail-left" ng-repeat = "category in Categories" href="#/app/sbrett/{{category.id}}">
-							<img src="{{CategoryImage.url}}">
+							<img src="http://46.101.160.142{{category.image.photo.url}}">
 							<h2>{{category.name}}</h2>
 						</a>
 				</div>
 
-				<div class="list" ng-Controller="ImageCtrl" ng-if="query">
-						<a class="item item-thumbnail-left" ng-repeat = "offer in OfferBlackboard | filter:query" href="#/app/sbrett/{{category.id}}">
-							<img src="{{offer.url}}">
+				<div class="list" ng-if="query">
+						<a class="item item-thumbnail-left" ng-repeat = "offer in OfferBlackboard | filter:query" href="#/app/{{offer.categoryid}}/offer/{{offer.id}}" ng-if="!offer.request">
+							<img src="http://46.101.160.142{{offer.images[0].photo.photo.thumb.url}}">
+							<h2>{{offer.title}}</h2>
+						</a>
+						<a class="item" ng-repeat = "offer in OfferBlackboard | filter:query" href="#/app/{{offer.categoryid}}/request/{{offer.id}}" ng-if="offer.request">
 							<h2>{{offer.title}}</h2>
 						</a>
 				</div>

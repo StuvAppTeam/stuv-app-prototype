@@ -142,10 +142,12 @@
         </div>
 
         <div class="item item-body">
-          <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="Wohnungitem.image">
-            <ion-slide>
-              <div class="box blue"><p>{{image.title}}</p></div>
-            </ion-slide>
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-if="Wohnungitem.images[0]">
+  					<ion-slide ng-repeat="image in Wohnungitem.images">
+  						<h3 style="text-align:center;">{{image.title}}</h3>
+  						<div class="helper"><img src="http://46.101.160.142{{image.photo.photo.url}}" style="width:100%"></div>
+  					</ion-slide>
+  				</ion-slide-box>
 
           </ion-slide-box>
             <h3>Beschreibung:</h3>
