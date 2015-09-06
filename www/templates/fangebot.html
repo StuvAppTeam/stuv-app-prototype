@@ -17,7 +17,7 @@
 					on-refresh="swipeDown()">
 				</ion-refresher>
 				<div class="list">
-					<a class="item" href="#/app/fangebot/{{activity.id}}" ng-repeat="activity in sportFangebot">
+					<a class="item" href="#/app/fangebot/{{activity.id}}" ng-repeat="activity in sportFangebot | orderBy: 'title'">
 						<h3>{{activity.title}}</h3>
 					</a>
 				</div>
