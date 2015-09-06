@@ -18,7 +18,9 @@
     "type": "git",
     "url": "http://github.com/StuvAppTeam/stuv-app-prototype.git"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "org.apache.cordova.inappbrowser"
+  ],
   "cordovaPlatforms": [
     "ios",
     "android"
