@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['constants'])
 
 .controller('AppCtrl', function($scope) {
 
@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 
 
 // Controller für die Anzeige der News
-.controller('NewsCtrl', function($scope, $http, News) {
+.controller('NewsCtrl', function($scope, $http, News, interface_news) {
 	// Initialisierung der Arrays über Service Funktionen
 	$scope.allNews = News.all();
 	$scope.stuvNews = News.all_stuv();
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
 	$scope.update = function(){
 		var stuvnews = [];
 		var dhbwnews = [];
-		$http.get('http://46.101.160.142/dhbw_news.json')
+		$http.get(interface_news)
 		.success(function(data,status){
   		for (var i = 0; i < data.length; i++){
 				if(data[i].stuv === true)
@@ -96,11 +96,11 @@ angular.module('starter.controllers', [])
 
 
 // Controller für die Anzeige des Mensaplans
-.controller('MensaCtrl', function($scope, Mensa, $http, $ionicLoading) {
+.controller('MensaCtrl', function($scope, Mensa, $http, $ionicLoading, interface_mensa) {
 	$scope.fullPlan = Mensa.all();
 
 	$scope.update = function(){
-		$http.get('http://46.101.160.142/mensas.json').success(function(data,status){
+		$http.get(interface_mensa).success(function(data,status){
 			$scope.fullPlan = Mensa.split(data);
 		})
 		.finally(function() {
@@ -120,12 +120,12 @@ angular.module('starter.controllers', [])
 
 
 //Controller für die Anzeige der Freizeitangebote
-.controller('FangebotCtrl', function($scope, Fangebot, $http) {
+.controller('FangebotCtrl', function($scope, Fangebot, $http, interface_fangebot) {
 
 	$scope.update = function(){
 		var sport = [];
 		var unterhaltung = [];
-		$http.get('http://46.101.160.142/activities.json').success(function(data,status){
+		$http.get(interface_fangebot).success(function(data,status){
 			for (var i = 0; i < data.length; i++){
 				if(data[i].activity_type === "Sport")
 					sport.push(data[i]);
@@ -161,11 +161,11 @@ angular.module('starter.controllers', [])
 
 
 //Controller für die Auswahl eines Campus-Gebäudes
-.controller('CampusCtrl', function($scope, Campus, $http){
+.controller('CampusCtrl', function($scope, Campus, $http,interface_campus){
 	$scope.standorte = Campus.all();
 
 	$scope.update = function(){
-		$http.get('http://46.101.160.142/campus.json').success(function(data,status){
+		$http.get(interface_campus).success(function(data,status){
 			$scope.standorte = Campus.split(data);
 		})
 		.finally(function() {
@@ -185,12 +185,12 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('SbrettCtrl', function($scope, Sbrett, $http){
+.controller('SbrettCtrl', function($scope, Sbrett, $http, interface_blackboard, interface_categories){
 	$scope.OfferBlackboard = Sbrett.all();
 	$scope.Categories = Sbrett.all_categories();
 
 	$scope.update_blackboard = function(){
-		$http.get('http://46.101.160.142/offer_blackboards.json').success(function(data,status){
+		$http.get(interface_blackboard).success(function(data,status){
   		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
   	})
 		.finally(function() {
@@ -200,7 +200,7 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.update = function(){
-		$http.get('http://46.101.160.142/categories.json').success(function(data,status){
+		$http.get(interface_categories).success(function(data,status){
 			$scope.Categories = Sbrett.split_categories(data);
 		})
 		.finally(function() {
@@ -219,12 +219,12 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('SbrettCategoryCtrl', function($scope, $stateParams, $http,Sbrett) {
+.controller('SbrettCategoryCtrl', function($scope, $stateParams, $http,Sbrett, interface_blackboard) {
 	$scope.Offer = Sbrett.all_offers_in_category($stateParams.categoriesId);
 	$scope.Request = Sbrett.all_requests_in_category($stateParams.categoriesId);
 	$scope.categories = Sbrett.get($stateParams.categoriesId);
 	$scope.update_blackboard = function(){
-		$http.get('http://46.101.160.142/offer_blackboards.json').success(function(data,status){
+		$http.get(interface_blackboard).success(function(data,status){
   		$scope.OfferBlackboard = Sbrett.split_blackboard(data);
   	})
 		.finally(function() {
@@ -253,13 +253,13 @@ angular.module('starter.controllers', [])
 
 
 //Controller für die Auswahl einer Wohnung
-.controller('WohnungCtrl', function($scope, Wohnung, $http){
+.controller('WohnungCtrl', function($scope, Wohnung, $http, interface_apartments){
 	$scope.OfferApartment = Wohnung.all_offer();
 	$scope.RequestApartment = Wohnung.all_request();
 	$scope.Apartment = Wohnung.all();
 
 	$scope.update = function(){
-		$http.get('http://46.101.160.142/apartments.json').success(function(data,status){
+		$http.get(interface_apartments).success(function(data,status){
 			$scope.Apartment = Wohnung.split(data);
 			$scope.OfferApartment = Wohnung.all_offer();
 			$scope.RequestApartment = Wohnung.all_request();
