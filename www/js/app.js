@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','a
   });
 
   $rootScope.$on('loading:show', function(){
-      $ionicLoading.show({template: '<ion-spinner icon="spiral"></ion-spinner>'})
+      $ionicLoading.show({template: '<ion-spinner icon="spiral"></ion-spinner>', duration: 5000})
   })
 
   $rootScope.$on('loading:hide', function(){
